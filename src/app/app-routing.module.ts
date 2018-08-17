@@ -5,6 +5,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { RegionComponent } from './region/region.component';
 import { ImageSliderComponent } from './image-slider/image-slider.component';
 
+
 const routes: Routes = [
   {
   path: '',
@@ -12,14 +13,14 @@ const routes: Routes = [
   },
   {
   
-  path: 'MenuComponentComponent',
+  path: 'Cars',
   component: MenuComponentComponent,
     children:[{
     path: '',
     component: ImageSliderComponent
        },
    {
-    path: 'ModelComponent',
+    path: 'Model',
     component: ModelComponent
     }
     ]

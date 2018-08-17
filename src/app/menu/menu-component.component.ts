@@ -53,7 +53,7 @@ export class MenuComponentComponent implements OnInit {
 loadComponent(name)
 {
   
-  this.router.navigate(['./MenuComponentComponent/'+name+'Component']);
+  this.router.navigate(['./Cars/'+name+'']);
 }
 
 

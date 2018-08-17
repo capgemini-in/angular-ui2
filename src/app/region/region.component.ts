@@ -90,7 +90,7 @@ export class RegionComponent implements OnInit {
     }
       else{
         this.loadingRegion(selectedCountry,selectedState);
-        this.router.navigate(['./MenuComponentComponent']);
+        this.router.navigate(['./Cars']);
         
             }
   }
