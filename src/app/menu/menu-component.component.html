@@ -1,0 +1,103 @@
+
+<div id="menuDiv"> 
+<!-- <table id="menuTable" class="menuTable"> 
+<tr >
+  <td>
+      <img src= "{{ imgsrc }}"  height="52" width="52" id="img">
+  </td>
+  <td *ngFor= "let m of menu">
+      <span >
+          <button id="menuButton" class="menuButton" >{{m.name}}</button>
+          </span> 
+  </td>
+</tr>
+</table> -->
+
+<div id="header">
+    <nav class="navbar navbar-expand-sm">
+        <!-- Links -->
+        <ul class="navbar-nav">
+              <li class="nav-item">
+                <button id="headerButton" (click)="locateRetailer(header[0].name)"
+
+              value={{header[0].name}} >{{header[0].name}}</button>
+              </li>
+              &nbsp;
+              <li class="nav-item">
+                  <input type="search" id="headerSearch" placeholder="Search" >
+                  </li>
+                   &nbsp;
+                  <li class="nav-item">
+                      <!--    -->
+                      <!-- to open a specfic url onchange="window.location.href=this.value;" -->
+                    <select (change)="quickLinks($event)" > 
+            <option id ="option0" value=0><span class="glyphicon glyphicon-usd"></span>{{header[2].name}}</option>
+      <option *ngFor="let s of submenu" value={{s.name}} >{{s.name}}
+        </option>
+       </select>
+         </li>
+          
+          </ul>
+        </nav>
+      </div>
+
+
+<div id="menuDisplay">
+<nav class="navbar navbar-expand-sm ">
+    <!-- Links -->
+    <ul class="navbar-nav">
+        <li class="nav-item">
+            <img src= "{{ imgsrc }}"  height="52" width="52" id="img">
+              </li>
+       <li class="nav-item" *ngFor= "let m of menu" [ngStyle]="{width: menu_width+'%' }">
+          <button  id="menuButton" class="menuButton" (click)="loadComponent(m.name)" value={{m.name}}>{{m.name}}</button>
+        </li>
+    </ul>
+    </nav>
+  </div>
+  <router-outlet> 
+
+</router-outlet> 
+
+<!-- 
+<div id="containers" class="container" style="height: 70px;">
+    <div
+      ng2-carouselamos
+      class="slides-wrapper"
+      [items]="items"
+      [width]="auto"
+      [$prev]="prev"
+      [$next]="next"
+      [$item]="item"
+        >
+    </div>
+    <ng-template #prev id="containerImage"> 
+    <img src="/src/assets/SliderImages/left.png" id="left"  width="42px" height="42px"/>
+  </ng-template>
+  <ng-template #next>
+    <img src="/src/assets/SliderImages/right.png" width="42px" height="42px" id="right" />
+  </ng-template>
+  <ng-template #item let-item let-i="index">
+      <div class="items">
+        <img src="{{ item.name }}">
+        
+      </div>
+            
+  </ng-template>
+  </div> -->
+
+
+
+<ul class="list-group" id="list">
+    <li id="sideMenuList" class="sideMenuList" *ngFor="let side of sideMenu" 
+       class="list-group-item">
+        <a href="https://www.google.com/">{{side.name}} </a>
+        <span class={{side.class}}></span>
+      </li>
+  </ul>     
+</div>
+
+
+    
+  
+  

@@ -1,0 +1,23 @@
+<div id="containers" class="container" style="height: 70px;">
+    <div
+      ng2-carouselamos
+      class="slides-wrapper"
+      [items]="items"
+      [width]="auto"
+      [$item]="item"
+        >
+    </div>
+  <div class="container">
+      <ng-template #prev id="containerImage"> 
+            <img src="/src/assets/SliderImages/left.png" id="left"  width="42px" height="42px"/>
+      </ng-template>
+      <ng-template #next>
+        <img src="/src/assets/SliderImages/right.png" width="42px" height="42px" id="right" />
+      </ng-template>
+      <ng-template #item let-item let-i="index">
+          <div class="items">
+            <img src="{{ item.name}}">
+          </div>
+      </ng-template>
+  </div>
+</div>
