@@ -1,3 +1,4 @@
+import { ModelService } from './../model.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,7 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ModelComponent implements OnInit {
 
-  constructor() { }
+modelNames:any;
+
+  constructor(private modelService:ModelService) { 
+    this.modelNames=modelService.model;
+
+  }
 
   ngOnInit() {
   }

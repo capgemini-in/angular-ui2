@@ -1,3 +1,14 @@
-<p>
-  model works!
-</p>
+<div class="maingallery" style="
+width: 100%;
+height:40px; ">
+  
+<div class="gallery"  *ngFor="let models of modelNames" >
+    <a target="_blank" href="#">
+      <img src="{{models.img}}" alt="5Terre" width="25%" height="10%">
+    </a>
+    <div class="desc">{{models.name}}</div>
+  </div>
+  
+  
+  
+</div>
