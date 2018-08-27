@@ -1,15 +1,19 @@
 div.gallery {
-    margin: 7px;
-    
+    /*margin: 7px;
     border: 1px solid rgb(21, 21, 75);
     float: left;
-    width: 25%;
-    
+    width: 25%;*/
+    margin-bottom: 50px;
+}
+
+div.gallery .gallery-inner{
+		margin: 5px;
+		box-shadow: 1px 2px 7px #cacaca; /*#efefef*/
+		    border-bottom: 4px solid #ff4b51
 }
 
 div.gallery:hover {
-    border: 1px solid #777;
-    
+
 }
 
 div.gallery img {
@@ -19,6 +23,10 @@ div.gallery img {
 }
 
 div.desc {
-    padding: 15px;
-    text-align: center;
+   padding: 5px 0;
+	text-align: center;
+	font-family: 'Quicksand';
+	font-weight: 600;
+	color: #043aa7;
+	font-size: 16px;
 }

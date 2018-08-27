@@ -15,11 +15,10 @@ export class ImageSliderComponent implements OnInit {
       { name: '/src/assets/SliderImages/4.png' },
       { name: '/src/assets/SliderImages/4.png' }
     ]
-
-
   }
 
   ngOnInit() {
+  
   }
 
 }

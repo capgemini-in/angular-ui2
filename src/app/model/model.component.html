@@ -1,14 +1,10 @@
-<div class="maingallery" style="
-width: 100%;
-height:40px; ">
-  
-<div class="gallery"  *ngFor="let models of modelNames" >
-    <a target="_blank" href="#">
-      <img src="{{models.img}}" alt="5Terre" width="25%" height="10%">
-    </a>
-    <div class="desc">{{models.name}}</div>
-  </div>
-  
-  
-  
+<div class="maingallery main-content-wrapper">
+		<div class="col-md-3 col-xs-12 gallery"  *ngFor="let models of modelNames" >
+		<div class="gallery-inner">
+		<a target="_blank" href="javascript:void(0)" (click)="viewCar(models.id)" >
+					<img src="{{models.img}}" alt="5Terre" width="25%" height="10%">
+		</a>
+		<div class="desc">{{models.name}}</div>
+		</div>
+	</div>
 </div>

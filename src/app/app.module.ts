@@ -17,8 +17,9 @@ import { MenuComponentComponent } from './menu/menu-component.component';
 import { Ng2CarouselamosModule } from 'ng2-carouselamos';
 import { ModelComponent } from './model/model.component';
 import { ImageSliderComponent } from './image-slider/image-slider.component';
+import { CarviewComponent } from './carview/carview.component';
 
-
+import { HttpClientModule } from "@angular/common/http";
 
 
 
@@ -29,7 +30,8 @@ import { ImageSliderComponent } from './image-slider/image-slider.component';
     RegionComponent,
     MenuComponentComponent,
     ModelComponent,
-    ImageSliderComponent
+    ImageSliderComponent,
+    CarviewComponent
   ],
   imports: [
     BrowserModule,
@@ -38,7 +40,8 @@ import { ImageSliderComponent } from './image-slider/image-slider.component';
     NgbModule.forRoot(),
     BrowserAnimationsModule,
     MatSelectModule,
-    Ng2CarouselamosModule
+    Ng2CarouselamosModule,
+    HttpClientModule
    
   ],
   providers: [MenuItemsService],
