@@ -31,29 +31,47 @@ export class MenuComponentComponent implements OnInit {
   }
      
   constructor(private menuservice:MenuItemsService,private headservice:HeaderService, private sideMenuSerive:SideMenuService,private router: Router) {
+   
    this.header=headservice.Header;
-   this.menu=menuservice.MenuItem;
+   
+   //this.menu=menuservice.MenuItem;
    //console.log(parseInt( 100 / parseInt(this.menu.length) ));
-   this.menu_width = Math.floor(100 / parseInt(this.menu.length));
+   /*this.menu_width = Math.floor(100 / parseInt(this.menu.length));
    if( this.menu_width<0 || isNaN(this.menu_width) )
    {
       this.menu_width = 10;
-   }
+   }*/
 
    this.submenu=headservice.Header[2].subMenu;
    this.sideMenu=sideMenuSerive.sideMenu;
    this.items = [
-    { name: '/src/assets/SliderImages/1.jpg' },
-    { name: '/src/assets/SliderImages/2.jpg' },
-    { name: '/src/assets/SliderImages/3.jpg' }
-  ]
+                  { name: '/src/assets/SliderImages/1.jpg' },
+                  { name: '/src/assets/SliderImages/2.jpg' },
+                  { name: '/src/assets/SliderImages/3.jpg' }
+                ]
+
+    menuservice.getMenus().subscribe(response => {
+      console.log("menus");
+      console.log(response);
+      let menus = response.menus;
+      this.menu = menus;
+      this.menu_width = Math.floor(100 / parseInt(this.menu.length));
+       if( this.menu_width<0 || isNaN(this.menu_width) )
+       {
+          this.menu_width = 10;
+       }
+    });
 
   }
 
-loadComponent(name)
+loadComponent(name, modelName)
 {
-  
-  this.router.navigate(['./Cars/'+name+'']);
+  let queryParams = {};
+
+  if(modelName!==undefined){
+    queryParams = { queryParams: {category: modelName } }
+  }
+  this.router.navigate(['./Cars/'+name],queryParams);
 }
 
 

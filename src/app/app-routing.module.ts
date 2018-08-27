@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { RegionComponent } from './region/region.component';
 import { ImageSliderComponent } from './image-slider/image-slider.component';
-
+import { CarviewComponent } from './carview/carview.component';
 
 const routes: Routes = [
   {
@@ -12,20 +12,25 @@ const routes: Routes = [
   component: RegionComponent
   },
   {
-  
-  path: 'Cars',
-  component: MenuComponentComponent,
+    path: 'Cars',
+    component: MenuComponentComponent,
     children:[{
-    path: '',
-    component: ImageSliderComponent
-       },
-   {
-    path: 'Model',
-    component: ModelComponent
-    }
-    ]
-
-}
+      path: '',
+      component: ImageSliderComponent
+    },
+    {
+      path: 'Model',
+      component: ModelComponent
+    },
+    {
+      path: 'Showroom',
+      component: ModelComponent
+    },
+    {
+      path: 'view',
+      component: CarviewComponent
+    }]
+  }
 
   
 
