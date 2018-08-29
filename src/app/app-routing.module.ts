@@ -1,3 +1,4 @@
+import { GalleryComponent } from './gallery/gallery.component';
 import { ModelComponent } from './model/model.component';
 import { MenuComponentComponent } from './menu/menu-component.component';
 import { NgModule } from '@angular/core';
@@ -29,7 +30,12 @@ const routes: Routes = [
     {
       path: 'view',
       component: CarviewComponent
-    }]
+    },
+    {
+      path: 'gallery',
+      component: GalleryComponent
+    }
+      ]
   }
 
   

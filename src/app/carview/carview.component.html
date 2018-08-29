@@ -1,6 +1,9 @@
+<div>
+
+  <div id="cover" class="{{ displaycover }}" >
 <div class="maingallery main-content-wrapper">
 <!--div id=main class="item_wrap"-->
-  <div class="main mkv" style="height: 0px;">
+  <div class="main mkv col-md-3" style="height: 0px;">
     <div class="title">
       <strong> Grand Capgemni Motors Car </strong>
       <br>
@@ -23,14 +26,42 @@
         <a href="#"><img src="src/assets/book.png"> </a>
       </div>
   </div>
-   <div class="carImage" >
-  <img src="src/assets/carimage.png"/>
+   <div class="col-md-7 carImage" >
+  <img src="{{ img }}"/>
   </div>
-  <div class="galleryButtons">
-  <a href="#"><img src="src/assets/cover.jpg" class="imgButton"></a>
-  <a href="#"><img src="src/assets/gallerybutton.jpg" class="imgButton"></a>
-  <a href="#"><img src="src/assets/expButton.jpg" class="imgButton"></a>
-</div>
-</div>
  
-  
+  <div class="colorbuttons col-md-2">
+      <ul  *ngFor= "let colorB of imgarray" >
+        <button id="colorb" class="{{ colorB.color }}" value="{{ colorB.id }}" (click)="color(colorB.id)" ></button>
+      </ul>
+      </div>
+  <div class="galleryButtons">
+  <a href="javascript:;"><img src="src/assets/cover.jpg"   (click)="cover($event)"  class="imgButton"></a>
+  <a href="javascript:;"><img src="src/assets/gallerybutton.jpg"   class="imgButton"></a>
+  <a href="javascript:;"><img src="src/assets/expButton.jpg" (click)="exp30($event)" class="imgButton"></a>
+</div>
+</div>
+</div>
+
+
+<div id="cover" class="{{ display360 }}" >
+  <div>
+      <div class="360view" style="height:0px;margin-left:100px">
+          <img src="src/assets/exp360.png">
+          <h6>Actual Product may differ</h6>
+          </div>
+           <div id="view360"  style="margin-left:15%" >
+            </div>
+        <div class="galleryButtons">
+            <a href="javascript:;"><img src="src/assets/cover.jpg" (click)="cover($event)" class="imgButton"></a>
+            <a href="javascript:;"><img src="src/assets/gallerybutton.jpg"  class="imgButton"></a>
+            <a href="javascript:;"><img src="src/assets/expButton.jpg" (click)="exp30($event)" class="imgButton"></a>
+          </div>
+     </div>
+ </div>
+
+</div>
+          
+
+
+ 

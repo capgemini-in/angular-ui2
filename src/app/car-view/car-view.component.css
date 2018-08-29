@@ -5,38 +5,18 @@
     color: #333;
 	margin-left:15%;
 	margin-top:10%;
-    }
-    
+	}
 .carImage{
 position:relative;
 margin-left:25%;
-height: 0;
 }
 
 .galleryButtons
 {
 margin-left:35%;
-margin-top: 34%;
-height: 0;
-position: relative;
 }
 
 .imgButton{
     margin-left:5%;
     margin-right:5%;
     }
-
-.colorbuttons
-{
-    margin-top: 5%;
-    margin-left: 92%;
-}
-#colorb
-{
-    border-radius: 50%;
-    display: inline-block;
-    margin-left:0px;
-    height: 45px;
-    width: 45px;
-}
-
