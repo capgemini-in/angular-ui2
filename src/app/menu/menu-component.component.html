@@ -29,7 +29,7 @@
                             <a *ngIf="m.subMenus.length>0" href="javascript:v" class="dropdown-toggle " data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{m.menuName}}<span class="caret"></span></a>
                             <ul *ngIf="m.subMenus" class="dropdown-menu">
                                 <li *ngFor="let c of m.subMenus" class=" dropdown">
-                                    <a href="#" class="dropdown-toggle " data-toggle="dropdown" (click)="loadComponent(m.menuName, c.subMenuName)" role="button" aria-haspopup="true" aria-expanded="false">{{c.subMenuName}}</a>
+                                    <a href="#" class="dropdown-toggle " data-toggle="dropdown" (click)="loadComponent(m.menuName, c.subMenuId)" role="button" aria-haspopup="true" aria-expanded="false">{{c.subMenuName}}</a>
                                 </li>
                             </ul>
                         </li>
@@ -83,6 +83,12 @@
 
 
 <div class="container main-content" >
+        <div class="breadcumbs" *ngIf="currentURL != homePageURL ">
+            <a class="level1">Showroom</a>
+            |
+            <a class="level1">Sedan</a>
+        </div>
+        
         <router-outlet> 
         </router-outlet> 
 </div>

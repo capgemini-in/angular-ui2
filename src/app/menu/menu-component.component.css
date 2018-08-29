@@ -237,6 +237,7 @@ border: none;
 .search-box{
         padding-top: 18px;
         margin-left: 50px;
+        margin-right: 36px
 }
 
 
@@ -260,10 +261,11 @@ border: none;
 }
 
 #footer{
+    
     background: #e8e8e8;
     padding: 15px 0;
     bottom: 0;
-    position: fixed;
+    position: relative;
     width: 100%;
 }
 
@@ -273,4 +275,22 @@ border: none;
 
 .nav  li a{
     text-transform: uppercase;
+}
+
+
+.breadcumbs{
+     margin-top: 15px;
+}
+
+.breadcumbs a {
+    text-transform: uppercase;
+    color: #333;
+    font-size: 12px;
+    font-weight: 500;
+    font-family: 'Quicksand', sans-serif;
+    background: #eee;
+    display: inline-block;
+    padding: 4px 6px;
+    border-radius: 6px;
+    text-align: center;
 }
