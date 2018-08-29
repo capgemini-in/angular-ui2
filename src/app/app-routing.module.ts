@@ -5,6 +5,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { RegionComponent } from './region/region.component';
 import { ImageSliderComponent } from './image-slider/image-slider.component';
 import { CarviewComponent } from './carview/carview.component';
+import { TestSlideComponent } from './test-slide/test-slide.component';
 
 const routes: Routes = [
   {
@@ -29,8 +30,17 @@ const routes: Routes = [
     {
       path: 'view',
       component: CarviewComponent
-    }]
-  }
+    },
+    {
+      path: 'testSlide',
+      component: TestSlideComponent
+    }
+    ]
+  },
+  {
+      path: 'testSlide',
+      component: TestSlideComponent
+    }
 
   
 

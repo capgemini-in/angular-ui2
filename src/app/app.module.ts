@@ -20,7 +20,10 @@ import { ImageSliderComponent } from './image-slider/image-slider.component';
 import { CarviewComponent } from './carview/carview.component';
 
 import { HttpClientModule } from "@angular/common/http";
-
+import { TestSlideComponent } from './test-slide/test-slide.component';
+import  'hammerjs';
+import { NgxHmCarouselModule } from 'ngx-hm-carousel';
+import { LocateDealerComponent } from './locate-dealer/locate-dealer.component';
 
 
 
@@ -31,18 +34,20 @@ import { HttpClientModule } from "@angular/common/http";
     MenuComponentComponent,
     ModelComponent,
     ImageSliderComponent,
-    CarviewComponent
+    CarviewComponent,
+    TestSlideComponent,
+    LocateDealerComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    NgbModule.forRoot(),
+    //NgbModule.forRoot(),
     BrowserAnimationsModule,
     MatSelectModule,
     Ng2CarouselamosModule,
-    HttpClientModule
-   
+    HttpClientModule,
+    NgxHmCarouselModule
   ],
   providers: [MenuItemsService],
   bootstrap: [AppComponent]
