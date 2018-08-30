@@ -26,6 +26,7 @@ import { HttpClientModule } from "@angular/common/http";
 import { GalleryComponent } from './gallery/gallery.component';
 
 import { GalleryModule } from 'ng-gallery';
+import { LightboxModule } from 'angular2-lightbox';
 
 
 
@@ -50,7 +51,9 @@ import { GalleryModule } from 'ng-gallery';
     Ng2CarouselamosModule,
     HttpClientModule,
     MDBBootstrapModule.forRoot(),
-    GalleryModule.forRoot()
+    GalleryModule.forRoot(),
+    LightboxModule 
+
 
 
    

@@ -1,6 +1,6 @@
-<div>
+<div id="main Div">
 
-  <div id="cover" class="{{ displaycover }}" >
+  <div id="coverDiv" class="{{ displaycover }}" >
 <div class="maingallery main-content-wrapper">
 <!--div id=main class="item_wrap"-->
   <div class="main mkv col-md-3" style="height: 0px;">
@@ -37,14 +37,14 @@
       </div>
   <div class="galleryButtons">
   <a href="javascript:;"><img src="src/assets/cover.jpg"   (click)="cover($event)"  class="imgButton"></a>
-  <a href="javascript:;"><img src="src/assets/gallerybutton.jpg"   class="imgButton"></a>
+  <a href="javascript:;"><img src="src/assets/gallerybutton.jpg"  (click)="gallery($event)"  class="imgButton"></a>
   <a href="javascript:;"><img src="src/assets/expButton.jpg" (click)="exp30($event)" class="imgButton"></a>
 </div>
 </div>
 </div>
 
 
-<div id="cover" class="{{ display360 }}" >
+<div id="360Div" class="{{ display360 }}" >
   <div>
       <div class="360view" style="height:0px;margin-left:100px">
           <img src="src/assets/exp360.png">
@@ -54,13 +54,35 @@
             </div>
         <div class="galleryButtons">
             <a href="javascript:;"><img src="src/assets/cover.jpg" (click)="cover($event)" class="imgButton"></a>
-            <a href="javascript:;"><img src="src/assets/gallerybutton.jpg"  class="imgButton"></a>
+            <a href="javascript:;"><img src="src/assets/gallerybutton.jpg" (click)="gallery($event)" class="imgButton"></a>
             <a href="javascript:;"><img src="src/assets/expButton.jpg" (click)="exp30($event)" class="imgButton"></a>
           </div>
      </div>
  </div>
 
+ <div id="GalleryDiv" class="{{ displaygallery }}"  >
+    <div id="Gallery" >
+      <div>
+           <div *ngFor="let image of _album; let i=index">
+              <img [src]="image.thumb" (click)="open(i)"/>
+            </div>
+      </div>  
+          <div class="galleryButtons" style="margin-top: 150px">
+              <a href="javascript:;"><img src="src/assets/cover.jpg" (click)="cover($event)" class="imgButton"></a>
+              <a href="javascript:;"><img src="src/assets/gallerybutton.jpg" (click)="gallery($event)"  class="imgButton"></a>
+              <a href="javascript:;"><img src="src/assets/expButton.jpg" (click)="exp30($event)" class="imgButton"></a>
+            </div>
+       </div>
+   </div>
+
 </div>
+
+
+
+
+
+
+
           
 
 
