@@ -63,11 +63,12 @@
  <div id="GalleryDiv" class="{{ displaygallery }}"  >
     <div id="Gallery" >
       <div>
-           <div *ngFor="let image of _album; let i=index">
+        <img src="src/assets/gallery.png" >
+           <div *ngFor="let image of _album; let i=index" style="padding-left: 10px">
               <img [src]="image.thumb" (click)="open(i)"/>
             </div>
       </div>  
-          <div class="galleryButtons" style="margin-top: 150px">
+          <div class="galleryButtons" style="margin-top:100px">
               <a href="javascript:;"><img src="src/assets/cover.jpg" (click)="cover($event)" class="imgButton"></a>
               <a href="javascript:;"><img src="src/assets/gallerybutton.jpg" (click)="gallery($event)"  class="imgButton"></a>
               <a href="javascript:;"><img src="src/assets/expButton.jpg" (click)="exp30($event)" class="imgButton"></a>
