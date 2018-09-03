@@ -1,24 +1,30 @@
 .item_wrap{
-	font-size: 15px;
+	/*font-size: 15px;
     line-height: 150%;
     font-family: Arial,AppleGothic,Sans-Serif,Helvetica;
     color: #333;
 	margin-left:15%;
-	margin-top:10%;
+	margin-top:10%;*/
     }
     
 .carImage{
 position:relative;
-margin-left:25%;
-height: 0;
+}
+
+.carImage img{
+    width:100%;
 }
 
 .galleryButtons
 {
-margin-left:35%;
-margin-top: 34%;
-height: 0;
+text-align: center;    
+/*margin-left:35%;
+margin-top: 34%;*/
+height: 50px;
 position: relative;
+float: left;
+width: 100%;
+margin-bottom: 25px;
 }
 
 .imgButton{
@@ -29,7 +35,7 @@ position: relative;
 .colorbuttons
 {
     margin-top: 5%;
-    margin-left: 92%;
+    /*margin-left: 92%;*/
 }
 #colorb
 {
@@ -40,3 +46,35 @@ position: relative;
     width: 45px;
 }
 
+.w3-red {
+    background: #d12424;
+    border: 1px solid #d12424 ;
+}
+
+.w3-blue{
+    background: #4d699b;
+    border: 1px solid #4d699b;
+}
+
+.w3-black{
+    background: #333;
+    border: 1px solid #333;
+}
+
+
+#cover{
+    width: 100%;
+    float: left;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: 25% 25% 25% 25%;
+  padding: 10px;
+}
+.grid-item {
+ 
+  padding: 20px;
+  font-size: 30px;
+  text-align: center;
+}
