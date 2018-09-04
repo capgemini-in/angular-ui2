@@ -1,4 +1,6 @@
-    import { ModelComponent } from './model/model.component';
+import { GalleryComponent } from './gallery/gallery.component';
+import { ModelComponent } from './model/model.component';
+import { ModelComponent } from './model/model.component';
 import { MenuComponentComponent } from './menu/menu-component.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
@@ -34,6 +36,10 @@ const routes: Routes = [
       component: CarviewComponent
     },
     {
+      path: 'gallery',
+      component: GalleryComponent
+    }
+    {
       path: 'testSlide',
       component: TestSlideComponent
     },
@@ -55,10 +61,6 @@ const routes: Routes = [
       path: 'testSlide',
       component: TestSlideComponent
     }
-
-  
-
-
   ];
 
 @NgModule({

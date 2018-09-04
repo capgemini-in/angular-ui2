@@ -24,6 +24,7 @@
             ],
             "styles": [
                "src/styles.css",
+               "node_modules/angular2-lightbox/lightbox.css",
                "src/assets/tikslus360.css"   
                ],
             "scripts": [
@@ -128,3 +129,4 @@
   },
   "defaultProject": "AssestMangament"
 }
+

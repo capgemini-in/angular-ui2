@@ -19,15 +19,19 @@ import { ModelComponent } from './model/model.component';
 import { ImageSliderComponent } from './image-slider/image-slider.component';
 import { CarviewComponent } from './carview/carview.component';
 
+import { MDBBootstrapModule } from 'angular-bootstrap-md';
+import { NO_ERRORS_SCHEMA } from '@angular/core';
+
 import { HttpClientModule } from "@angular/common/http";
+import { GalleryComponent } from './gallery/gallery.component';
+import { GalleryModule } from 'ng-gallery';
+import { LightboxModule } from 'angular2-lightbox';
 import { TestSlideComponent } from './test-slide/test-slide.component';
 import  'hammerjs';
 import { NgxHmCarouselModule } from 'ngx-hm-carousel';
 import { LocateDealerComponent } from './locate-dealer/locate-dealer.component';
 import { AgmCoreModule, GoogleMapsAPIWrapper } from '@agm/core';
 import { CustomerProcessComponent } from './customer-process/customer-process.component';
-
-
 
 @NgModule({
   declarations: [
@@ -37,6 +41,7 @@ import { CustomerProcessComponent } from './customer-process/customer-process.co
     ModelComponent,
     ImageSliderComponent,
     CarviewComponent,
+    GalleryComponent,
     TestSlideComponent,
     LocateDealerComponent,
     CustomerProcessComponent
@@ -50,11 +55,16 @@ import { CustomerProcessComponent } from './customer-process/customer-process.co
     MatSelectModule,
     Ng2CarouselamosModule,
     HttpClientModule,
+    MDBBootstrapModule.forRoot(),
+    GalleryModule.forRoot(),
+    LightboxModule
+  ],
+
+  providers: [MenuItemsService,
     NgxHmCarouselModule,
     AgmCoreModule.forRoot({apiKey: 'AIzaSyBnPXXVu863jNO3wirLptt1RdZT6hcb72o'}),
-
+    GoogleMapsAPIWrapper,
   ],
-  providers: [MenuItemsService, GoogleMapsAPIWrapper],
-  bootstrap: [AppComponent]
+   bootstrap: [AppComponent]           
 })
 export class AppModule { }
