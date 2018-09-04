@@ -7,6 +7,7 @@ import { ImageSliderComponent } from './image-slider/image-slider.component';
 import { CarviewComponent } from './carview/carview.component';
 import { TestSlideComponent } from './test-slide/test-slide.component';
 import { LocateDealerComponent } from './locate-dealer/locate-dealer.component';
+import { CustomerProcessComponent } from './customer-process/customer-process.component';
 
 const routes: Routes = [
   {
@@ -39,6 +40,14 @@ const routes: Routes = [
     {
       path: 'locate-dealer',
       component: LocateDealerComponent
+    },
+    {
+      path: 'book-online',
+      component: CustomerProcessComponent 
+    },
+    {
+      path: 'get-quote',
+      component: CustomerProcessComponent 
     }
     ]
   },

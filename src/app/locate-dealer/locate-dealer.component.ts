@@ -3,6 +3,7 @@ import {DealerService} from './../services/dealer.service';
 
 import { MapsAPILoader, AgmMap,LatLngBounds } from '@agm/core';
 import { GoogleMapsAPIWrapper } from '@agm/core/services';
+import { Router } from "@angular/router";
 
 declare var google: any;
 
@@ -65,7 +66,7 @@ export class LocateDealerComponent implements OnInit {
 
   constructor( private dealerServ: DealerService, public mapsApiLoader: MapsAPILoader,
               private zone: NgZone,
-              private wrapper: GoogleMapsAPIWrapper ) { 
+              private wrapper: GoogleMapsAPIWrapper, private route: Router ) { 
        this.mapsApiLoader = mapsApiLoader;
         this.zone = zone;
         this.wrapper = wrapper;
@@ -151,6 +152,10 @@ export class LocateDealerComponent implements OnInit {
         /*this.mapsApiLoader.load().then(() => {
           this.geocoder = new google.maps.Geocoder();
         });*/
+  }
+
+  btn_action(dealer_id,action){
+    this.route.navigate(["./Cars/"+action],{dealer: dealer_id});
   }
 
 }

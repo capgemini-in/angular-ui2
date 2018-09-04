@@ -32,8 +32,19 @@
 
 				<div class="dealer-list" *ngFor="let dealer of dealers_list">
 					<h3>{{dealer.name}}</h3>
-					<p>{{dealer.address}}</p>
+					<p>{{dealer.address}} - {{dealer.pincode}}</p>
+					<div>
+						<span class="fa fa-globe">:&nbsp;</span><span class="web">{{dealer.website}}</span>
+						<br/>
+						<span class="fa fa-mobile">:&nbsp;</span><span class="web">{{dealer.mobileNumber}}</span>
+					</div>
+					<div class="buttons">
+						<button class="primary btn btn1" (click)="btn_action(dealer.id,'get-quote')">Get Quote</button>
+						&nbsp;
+						<button class="primary btn btn2" (click)="btn_action(dealer.id,'book-online')">Book Online</button>
+					</div>
 				</div>
+
 			</div>
 
 		</div>
