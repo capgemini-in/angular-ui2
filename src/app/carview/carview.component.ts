@@ -23,10 +23,11 @@ imgarray=[
   {id:"3",color:"w3-btn w3-blue",img:""}
 ];
   constructor(private router:Router,private _lightbox: Lightbox) {
-    for (let i = 1; i <= 4; i++) {
+    //for the gallery images //
+    for (let i = 1; i <= 7; i++) {
       const src = 'src/assets/smallCarImages/' + i + '_extended.jpg';
       const caption = 'Image ' + i + '';
-      const thumb = 'src/assets/smallCarImages/' + i + '.jpg';
+      const thumb = 'src/assets/smallCarImages/' + i + '_extended.jpg';
       const album = {
          src: src,
          caption: caption,
