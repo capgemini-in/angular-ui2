@@ -26,9 +26,13 @@ export class MenuComponentComponent implements OnInit {
    imgsrc='/src/assets/capg.jpg';
    items: Array<any> = [];
    regionComponent:RegionComponent;
-   ngOnInit() {
-      
-  }
+   public currentURL: string= "";
+   homePageURL = "/Cars"; 
+
+   ngOnInit() {  
+      this.currentURL = this.router.url;
+      //console.log(this.router);
+   }
      
   constructor(private menuservice:MenuItemsService,private headservice:HeaderService, private sideMenuSerive:SideMenuService,private router: Router) {
    
@@ -78,7 +82,7 @@ loadComponent(name, modelName)
 
 locateRetailer(retailerName)
 {
-alert("hi");
+//alert("hi");
 }
    
 quickLinks (event: any) 
@@ -90,6 +94,12 @@ quickLinks (event: any)
 
 }
 
+getBaseURL(absURL){
+  let currentURL = absURL;
+  let baseURL = currentURL.split("?");
+  baseURL = baseURL[0];
+  return baseURL;
+}
 
 
 }

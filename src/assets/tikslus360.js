@@ -247,4 +247,5 @@ rotate360(auto_rotate_count);
 $(window).load(function(){  
     //alert("this is from the function");
    $("#view360").tikslus360({imageDir:'./src/assets/car360/',imageCount:36,imageExt:'png' ,canvasID:'mycar',canvasWidth:1000,canvasHeight:380,autoRotate:false});
+   //$("#view360").tikslus360({imageDir:'./src/assets/car360/',imageCount:36,imageExt:'png' ,canvasID:'mycar',canvasWidth:900,canvasHeight:350,autoRotate:false});
  });
