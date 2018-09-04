@@ -7,6 +7,11 @@
 	margin-top:10%;*/
     }
     
+.main{
+    width: 100%;
+    float: left;
+}
+
 .carImage{
 position:relative;
 }

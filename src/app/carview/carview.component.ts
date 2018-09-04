@@ -22,6 +22,7 @@ imgarray=[
   {id:"2",color:"w3-btn w3-black",img:""},  
   {id:"3",color:"w3-btn w3-blue",img:""}
 ];
+
   constructor(private router:Router,private _lightbox: Lightbox) {
     //for the gallery images //
     for (let i = 1; i <= 7; i++) {
@@ -35,6 +36,7 @@ imgarray=[
       };
  
       this._album.push(album);
+      console.log(this._album);
     }
 
 
@@ -47,26 +49,8 @@ imgarray=[
 
 
 
-  color(id)
-  {
-    if(id==1)
-    {
-      // this.img="src/assets/carImageRed.JPG";
-    }
-    if(id==2)
-    {
-      this.img="src/assets/carImageBlack.JPG";
-    }
-    if(id==3)
-    {
-      this.img="src/assets/carImageBlue.JPG";
-    }
-  }
-
   
-  
-  
-
+/*
   cover(event)
   {
     this.displaycover="blank";
@@ -74,7 +58,8 @@ imgarray=[
     this.displaygallery="hide";
 
   }
-
+*/
+ 
   gallery(event)
   {
     this.displaygallery="blank";
@@ -83,6 +68,8 @@ imgarray=[
     
 
   }
+
+  /*
   exp30(event)
   {
     this.display360="blank";
@@ -98,7 +85,10 @@ imgarray=[
   {id:"2",color:"w3-btn w3-black",img:""},  
   {id:"3",color:"w3-btn w3-blue",img:""}
 ];
-  constructor(private router:Router) { }
+
+*/
+
+ // constructor(private router:Router) { }
 
   color(id)
   {
@@ -119,14 +109,6 @@ imgarray=[
   
   
   
-
-  cover(event)
-  {
-    this.displaycover="";
-    this.display360="hide";
-    this.displaygallery="hide";
-
-  }
 
   gall
   exp30(event)

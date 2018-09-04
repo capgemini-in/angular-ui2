@@ -1,3 +1,47 @@
-<p>
-  customer-process works!
-</p>
+<div class="maingallery main-content-wrapper">
+	<div class="accordian">
+		<button class="active" >
+			1
+		</button>
+		<div class="connector">
+		</div>
+		<button>
+			2
+		</button>
+		<div class="connector">
+		</div>
+		<button>
+			3
+		</button>
+		<div class="connector">
+		</div>
+		<button>
+			4
+		</button>
+		<div class="connector">
+		</div>
+		<button>
+			5
+		</button>
+	</div>
+	<div class="step-heading">
+		<h3>{{accordian_data[active_step]["heading"]}}</h3>
+	</div>
+
+	<div *ngIf="accordian_data[active_step]['show']">
+		<form class="form-inline" action="/action_page.php">
+			  <div class="form-group">
+			    <label for="email">Email address:</label>
+			    <input type="email" class="form-control" id="email">
+			  </div>
+			  <div class="form-group">
+			    <label for="pwd">Password:</label>
+			    <input type="password" class="form-control" id="pwd">
+			  </div>
+			  <div class="checkbox">
+			    <label><input type="checkbox"> Remember me</label>
+			  </div>
+			  <button type="submit" class="btn btn-default">Submit</button>
+			</form>
+	</div>
+</div>

@@ -155,7 +155,7 @@ export class LocateDealerComponent implements OnInit {
   }
 
   btn_action(dealer_id,action){
-    this.route.navigate(["./Cars/"+action],{dealer: dealer_id});
+    this.route.navigate(["./Cars/"+action],{queryParams: {dealer: dealer_id}} );
   }
 
 }

@@ -57,13 +57,14 @@ import { CustomerProcessComponent } from './customer-process/customer-process.co
     HttpClientModule,
     MDBBootstrapModule.forRoot(),
     GalleryModule.forRoot(),
-    LightboxModule
+    LightboxModule,
+    AgmCoreModule.forRoot({apiKey: 'AIzaSyBnPXXVu863jNO3wirLptt1RdZT6hcb72o'}),
+    NgxHmCarouselModule
   ],
 
-  providers: [MenuItemsService,
-    NgxHmCarouselModule,
-    AgmCoreModule.forRoot({apiKey: 'AIzaSyBnPXXVu863jNO3wirLptt1RdZT6hcb72o'}),
-    GoogleMapsAPIWrapper,
+  providers: [
+    MenuItemsService,
+    GoogleMapsAPIWrapper
   ],
    bootstrap: [AppComponent]           
 })
