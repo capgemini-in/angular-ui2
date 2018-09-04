@@ -11,6 +11,7 @@
   },
   "private": true,
   "dependencies": {
+    "@agm/core": "^1.0.0-beta.3",
     "@angular/animations": "^6.1.1",
     "@angular/cdk": "^6.4.2",
     "@angular/common": "^6.1.0",
@@ -25,6 +26,7 @@
     "@ng-bootstrap/ng-bootstrap": "^2.2.2",
     "angular-font-awesome": "^3.1.2",
     "angular-jk-carousel": "^0.5.0",
+    "angular-maps": "^6.0.1",
     "angular-ui-carousel": "^0.1.10",
     "angular4-carousel": "^3.1.8",
     "bootstrap": "^4.1.3",

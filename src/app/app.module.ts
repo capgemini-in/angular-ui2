@@ -24,6 +24,8 @@ import { TestSlideComponent } from './test-slide/test-slide.component';
 import  'hammerjs';
 import { NgxHmCarouselModule } from 'ngx-hm-carousel';
 import { LocateDealerComponent } from './locate-dealer/locate-dealer.component';
+import { AgmCoreModule, GoogleMapsAPIWrapper } from '@agm/core';
+import { CustomerProcessComponent } from './customer-process/customer-process.component';
 
 
 
@@ -36,7 +38,8 @@ import { LocateDealerComponent } from './locate-dealer/locate-dealer.component';
     ImageSliderComponent,
     CarviewComponent,
     TestSlideComponent,
-    LocateDealerComponent
+    LocateDealerComponent,
+    CustomerProcessComponent
   ],
   imports: [
     BrowserModule,
@@ -47,9 +50,11 @@ import { LocateDealerComponent } from './locate-dealer/locate-dealer.component';
     MatSelectModule,
     Ng2CarouselamosModule,
     HttpClientModule,
-    NgxHmCarouselModule
+    NgxHmCarouselModule,
+    AgmCoreModule.forRoot({apiKey: 'AIzaSyBnPXXVu863jNO3wirLptt1RdZT6hcb72o'}),
+
   ],
-  providers: [MenuItemsService],
+  providers: [MenuItemsService, GoogleMapsAPIWrapper],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
