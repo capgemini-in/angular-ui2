@@ -88,3 +88,42 @@ margin-bottom: 25px;
     width:90%;
     border:1px solid #eee; 
 }
+
+.get-quote-btn{
+    width: 154px;
+    padding: 0;
+    background: white;
+    color: #292929;
+    border-radius: 5px;
+    margin: 10px 0;
+    font-size: 16px;
+    font-weight: 600;
+    text-transform: uppercase;
+    height: 40px;
+    text-align: center;
+    outline: none;
+}
+
+
+.get-quote-btn span.content{
+    margin-top: 5px;
+    display: inline-block;
+}
+
+.get-quote-btn span.arrow{
+   float: right;
+    padding: 5px 8px;
+    background: #dbdbdb;
+    display: inline-block;
+    height: 36px;
+    vertical-align: bottom;
+    width: 35px;
+    border: 1px solid #dbdbdb;;
+}
+
+.get-quote-btn span.arrow i{
+    font-size: 20px;
+    color: #feffff;
+    font-weight: 600;
+}
+

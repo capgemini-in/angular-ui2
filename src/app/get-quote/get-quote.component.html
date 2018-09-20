@@ -1,39 +1,12 @@
 <div class="maingallery main-content-wrapper">
 	<div class="header">
-		<h2>Book Online</h2>
-	</div>
-	<div class="accordian">
-		<button [class]="accordian_data[0]['button']" >
-			1
-		</button>
-		<div class="connector">
-		</div>
-		<button [class]="accordian_data[1]['button']">
-			2
-		</button>
-		<div class="connector">
-		</div>
-		<button [class]="accordian_data[2]['button']">
-			3
-		</button>
-		<div class="connector">
-		</div>
-		<button [class]="accordian_data[3]['button']">
-			4
-		</button>
-		<div class="connector">
-		</div>
-		<button [class]="accordian_data[4]['button']">
-			5
-		</button>
-	</div>
-	<div class="step-heading">
-		<h3>{{accordian_data[active_step]["heading"]}}</h3>
+		<h2>Get Quote</h2>
 	</div>
 
-	<div *ngIf="accordian_data[0]['show']">
-		<div class="form-holder">
-			<form class="form-inline cp-form" action="/action_page.php" #ctForm="ngForm" (submit)="formSubmit(0)" >
+	<div>
+		<div class="form-holder with-image">
+			<div class="form-box">
+				<form class="form-inline cp-form" action="/action_page.php" #ctForm="ngForm" (submit)="formSubmit(0)" >
 			  <div class="form-group">
 			    <label for="firstName">First Name:</label>
 			    <input type="text" required [(ngModel)]="user_data.firstName" class="form-control" id="firstName" name="firstName" minlength="3" maxlength="20" #firstName="ngModel">
@@ -86,24 +59,7 @@
 			    </div>
 			  </div>
 
-			  <!--div class="checkbox">
-			    <label><input type="checkbox"> Remember me</label>
-			  </div-->
-			  <div class="button-group">
-			  <button type="submit" class="btn btn-default" [disabled]="!ctForm.form.valid || !ctForm.form.touched" >PROCEED</button>
-			  <button type="reset" class="btn btn-default">RESET</button>
-			  </div>
-
-			</form>
-		</div>
-	</div>
-
-
-	<div *ngIf="accordian_data[1]['show']">
-		<div class="form-holder with-image">
-			<div class="form-box">
-			<form class="form-inline cp-form" action="/action_page.php" #ctForm="ngForm" (submit)="formSubmit(0)" >
-			  <div class="form-group">
+			   <div class="form-group">
 			    <label for="variantSelected">Choose Variant:</label>
 			    
 			    <select class="form-control" name="variantSelected" id="variantSelected" required [(ngModel)]= "user_data.variantSelected" #variantSelected="ngModel">
@@ -120,30 +76,16 @@
 				</div>
 			  </div>
 
-			  <div class="form-group">
-			    <label for="color">Choose Color:</label>
-			    
-			    <select class="form-control" name="color" id="color" required [(ngModel)]= "user_data.colorSelected" #colorSelected="ngModel">
-			    	<option value=-1 selected="">Select</option>
-			    	<option *ngFor="let c of colorOption" value="c">
-			    		{{c}}
-			    	</option>
-			    </select>
-
-			    <div class="f_message">
-				    <div class="error" *ngIf="colorSelected.errors && colorSelected.errors.required && (colorSelected.dirty || colorSelected.touched)">
-				    	<span class="fa fa-times">&nbsp;</span> Select your desired car variant
-				    </div>
-				</div>
-			  </div>
 
 			  <!--div class="checkbox">
 			    <label><input type="checkbox"> Remember me</label>
 			  </div-->
-			  <div class="button-group">
+			  
+			  	<div class="button-group">
 			  <button type="submit" class="btn btn-default" [disabled]="!ctForm.form.valid || !ctForm.form.touched" >PROCEED</button>
 			  <button type="reset" class="btn btn-default">RESET</button>
 			  </div>
+
 			</form>
 			</div>
 

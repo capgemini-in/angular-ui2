@@ -50,7 +50,7 @@ imgarray=[
 
 
   
-/*
+
   cover(event)
   {
     this.displaycover="blank";
@@ -58,7 +58,7 @@ imgarray=[
     this.displaygallery="hide";
 
   }
-*/
+
  
   gallery(event)
   {

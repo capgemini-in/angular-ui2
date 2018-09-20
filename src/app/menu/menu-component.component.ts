@@ -1,7 +1,7 @@
 import { SideMenuService } from './../side-menu.service';
 import { RegionComponent } from './../region/region.component';
 import { HeaderService } from './../header.service';
-import { Router } from "@angular/router";
+import { Router, ActivatedRoute } from "@angular/router";
 
 import { element } from 'protractor';
 import 'rxjs/add/observable/of';
@@ -34,8 +34,12 @@ export class MenuComponentComponent implements OnInit {
       //console.log(this.router);
    }
      
-  constructor(private menuservice:MenuItemsService,private headservice:HeaderService, private sideMenuSerive:SideMenuService,private router: Router) {
-   
+   breadCumbs=[]; 
+
+  constructor(private menuservice:MenuItemsService,private headservice:HeaderService, private sideMenuSerive:SideMenuService,private router: Router, private activateRoute: ActivatedRoute) {
+   console.log(router);
+   this.breadCumbs = this.activateRoute.snapshot.data["breadCumb"];
+   console.log(this.breadCumbs);
    this.header=headservice.Header;
    
    //this.menu=menuservice.MenuItem;
@@ -68,14 +72,17 @@ export class MenuComponentComponent implements OnInit {
 
   }
 
-loadComponent(name, modelName)
+loadComponent(name, modelName, submenuName)
 {
   let queryParams = {};
-
-  if(modelName!==undefined){
+  console.log("menu:"+name);
+  if(modelName!==undefined && name.toLowerCase()=="showroom"){
     queryParams = { queryParams: {category: modelName } }
+    this.router.navigate(['./Cars/'+name],queryParams);
+  }else{
+    this.router.navigate(['./Cars/'+submenuName.toLowerCase().replace(" ","-")]);
   }
-  this.router.navigate(['./Cars/'+name],queryParams);
+
 }
 
 

@@ -9,6 +9,8 @@ import { CarviewComponent } from './carview/carview.component';
 import { TestSlideComponent } from './test-slide/test-slide.component';
 import { LocateDealerComponent } from './locate-dealer/locate-dealer.component';
 import { CustomerProcessComponent } from './customer-process/customer-process.component';
+import {BookTestDriveComponent} from './book-test-drive/book-test-drive.component';
+import { GetQuoteComponent } from './get-quote/get-quote.component';
 
 const routes: Routes = [
   {
@@ -18,6 +20,7 @@ const routes: Routes = [
   {
     path: 'Cars',
     component: MenuComponentComponent,
+    data: {'breadCumb':['Showroom', 'Variants'] },
     children:[{
       path: '',
       component: ImageSliderComponent
@@ -28,7 +31,8 @@ const routes: Routes = [
     },
     {
       path: 'Showroom',
-      component: ModelComponent
+      component: ModelComponent,
+      data: {'submenu': 'test'}
     },
     {
       path: 'view',
@@ -43,7 +47,7 @@ const routes: Routes = [
       component: TestSlideComponent
     },
     {
-      path: 'locate-dealer',
+      path: 'locate-dealers',
       component: LocateDealerComponent
     },
     {
@@ -52,7 +56,11 @@ const routes: Routes = [
     },
     {
       path: 'get-quote',
-      component: CustomerProcessComponent 
+      component: GetQuoteComponent 
+    },
+    {
+      path: 'book-test-drive',
+      component: BookTestDriveComponent
     }
     ]
   },
