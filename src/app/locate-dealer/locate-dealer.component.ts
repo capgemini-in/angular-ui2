@@ -59,7 +59,7 @@ export class LocateDealerComponent implements OnInit {
       lng: 19.2430864,
       draggable: false
     }]*/,
-    zoom: 11
+    zoom: 12
   };
 
   @ViewChild(AgmMap) map: AgmMap;

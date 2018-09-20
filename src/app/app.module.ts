@@ -32,6 +32,8 @@ import { NgxHmCarouselModule } from 'ngx-hm-carousel';
 import { LocateDealerComponent } from './locate-dealer/locate-dealer.component';
 import { AgmCoreModule, GoogleMapsAPIWrapper } from '@agm/core';
 import { CustomerProcessComponent } from './customer-process/customer-process.component';
+import { BookTestDriveComponent } from './book-test-drive/book-test-drive.component';
+import { GetQuoteComponent } from './get-quote/get-quote.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +46,9 @@ import { CustomerProcessComponent } from './customer-process/customer-process.co
     GalleryComponent,
     TestSlideComponent,
     LocateDealerComponent,
-    CustomerProcessComponent
+    CustomerProcessComponent,
+    BookTestDriveComponent,
+    GetQuoteComponent
   ],
   imports: [
     BrowserModule,
