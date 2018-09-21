@@ -3,7 +3,8 @@ import {DealerService} from './../services/dealer.service';
 
 import { MapsAPILoader, AgmMap,LatLngBounds } from '@agm/core';
 import { GoogleMapsAPIWrapper } from '@agm/core/services';
-import { Router } from "@angular/router";
+import { Router, ActivatedRoute } from "@angular/router";
+import { SessionManagerService } from './../services/session-manager.service';
 
 declare var google: any;
 
@@ -41,7 +42,7 @@ export class LocateDealerComponent implements OnInit {
 
   stateSelected = null;
   citySelected = null;
-  
+  scope= null;
 
   markerList = new Array();
 
@@ -66,19 +67,25 @@ export class LocateDealerComponent implements OnInit {
 
   constructor( private dealerServ: DealerService, public mapsApiLoader: MapsAPILoader,
               private zone: NgZone,
-              private wrapper: GoogleMapsAPIWrapper, private route: Router ) { 
-       this.mapsApiLoader = mapsApiLoader;
-        this.zone = zone;
-        this.wrapper = wrapper;
+              private wrapper: GoogleMapsAPIWrapper, private route: Router,
+              private sessionManager: SessionManagerService,
+              private activatedRoute: ActivatedRoute ) { 
+      this.mapsApiLoader = mapsApiLoader;
+      this.zone = zone;
+      this.wrapper = wrapper;
 
+       if(this.activatedRoute.snapshot.data && this.activatedRoute.snapshot.data["scope"]){
+            this.scope = this.activatedRoute.snapshot.data["scope"];
+       }   
+      console.log(this.scope);  
   }
 
   ngOnInit() {
   	this.dealerServ.getState_City_JSON().subscribe(response => {
-  		console.log("state city..");
+  		//console.log("state city..");
   		this.states_cities = response;
   	});
-
+    this.stateSelected =this.sessionManager.getCookie('user_selected_state');
   }
 
   showCities(){

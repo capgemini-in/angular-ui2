@@ -21,6 +21,8 @@ import { CarviewComponent } from './carview/carview.component';
 
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
+import { CookieService } from 'ngx-cookie-service';
+
 
 import { HttpClientModule } from "@angular/common/http";
 import { GalleryComponent } from './gallery/gallery.component';
@@ -34,6 +36,9 @@ import { AgmCoreModule, GoogleMapsAPIWrapper } from '@agm/core';
 import { CustomerProcessComponent } from './customer-process/customer-process.component';
 import { BookTestDriveComponent } from './book-test-drive/book-test-drive.component';
 import { GetQuoteComponent } from './get-quote/get-quote.component';
+import { FooterComponent } from './footer/footer.component';
+import { HeaderComponent } from './header/header.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +53,10 @@ import { GetQuoteComponent } from './get-quote/get-quote.component';
     LocateDealerComponent,
     CustomerProcessComponent,
     BookTestDriveComponent,
-    GetQuoteComponent
+    GetQuoteComponent,
+    FooterComponent,
+    HeaderComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
@@ -68,7 +76,8 @@ import { GetQuoteComponent } from './get-quote/get-quote.component';
 
   providers: [
     MenuItemsService,
-    GoogleMapsAPIWrapper
+    GoogleMapsAPIWrapper,
+    CookieService
   ],
    bootstrap: [AppComponent]           
 })

@@ -3,6 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {MatSelectModule} from '@angular/material/select';
 import { Router } from "@angular/router";
+import { SessionManagerService } from './../services/session-manager.service';
+import { DealerService } from './../services/dealer.service';
 
 @Component({
   selector: 'app-region',
@@ -47,9 +49,9 @@ export class RegionComponent implements OnInit {
 
   getStates() {
     return [
-      { id: 1, country_id: 1, name: 'New Delhi' },
+      { id: 3, country_id: 1, name: 'New Delhi' },
       { id: 2, country_id: 1, name: 'Gurgaon' },
-      { id: 3, country_id: 1, name: 'Mumbai' },
+      { id: 1, country_id: 1, name: 'Mumbai' },
       { id: 4, country_id: 2, name: 'San Francisco' },
       { id: 5, country_id: 2, name: 'Los Angeles' },
       { id: 6, country_id: 3, name: 'New South Wales' },
@@ -89,6 +91,9 @@ export class RegionComponent implements OnInit {
       alert("Please Select a Region to Continue ")
     }
       else{
+        this.sessionManager.setCookie('user_selected_state',selectedState);
+        this.sessionManager.setCookie('user_selected_country',selectedCountry );
+        this.sessionManager.setCookie('user_selected_city',1);
         this.loadingRegion(selectedCountry,selectedState);
         this.router.navigate(['./Cars']);
         
@@ -103,8 +108,8 @@ export class RegionComponent implements OnInit {
     
   }
 
-  constructor(private router: Router) {
-    this.router.navigate(["./Cars"]);
+  constructor(private router: Router, private sessionManager: SessionManagerService, private dealerService: DealerService) {
+    //this.router.navigate(["./Cars"]);
   } 
 
   ngOnInit() {
