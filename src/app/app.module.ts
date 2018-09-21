@@ -8,7 +8,7 @@ import { RegionComponent } from './region/region.component';
 
 import { FormsModule }   from '@angular/forms'
 
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import {NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
@@ -34,6 +34,9 @@ import { AgmCoreModule, GoogleMapsAPIWrapper } from '@agm/core';
 import { CustomerProcessComponent } from './customer-process/customer-process.component';
 import { BookTestDriveComponent } from './book-test-drive/book-test-drive.component';
 import { GetQuoteComponent } from './get-quote/get-quote.component';
+import { LoginModalComponent } from './login-modal/login-modal.component';
+
+
 
 @NgModule({
   declarations: [
@@ -48,13 +51,16 @@ import { GetQuoteComponent } from './get-quote/get-quote.component';
     LocateDealerComponent,
     CustomerProcessComponent,
     BookTestDriveComponent,
-    GetQuoteComponent
+    GetQuoteComponent,
+    LoginModalComponent
+    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    //NgbModule.forRoot(),
+    NgbModule.forRoot(),
+    
     BrowserAnimationsModule,
     MatSelectModule,
     Ng2CarouselamosModule,
@@ -64,6 +70,7 @@ import { GetQuoteComponent } from './get-quote/get-quote.component';
     LightboxModule,
     AgmCoreModule.forRoot({apiKey: 'AIzaSyBnPXXVu863jNO3wirLptt1RdZT6hcb72o'}),
     NgxHmCarouselModule
+    
   ],
 
   providers: [
