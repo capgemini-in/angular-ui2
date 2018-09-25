@@ -1,11 +1,10 @@
-<ng-template #content let-modal>
+<!-- <ng-template #content let-modal>
   <div class="modal-header">
-    <h4 class="modal-title">Modal title</h4>
-    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+    <h3 class="modal-title">Login</h3>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
       <span aria-hidden="true">&times;</span>
-    </button>
+    </button> 
   </div>
-  
   <div class="modal-body">
     <form>
       <div class="form-group">
@@ -20,10 +19,39 @@
       </div>
     </form>
     </div>
-      <div class="modal-footer">
-    <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Login</button>
-    <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">SignUp</button>
-  </div>
+    <div class="modal-footer">
+    <button type="button"class="btn btn-success" (click)="modal.close('Save click')">Login</button>
+     </div>
 </ng-template>
 
-<button class="btn btn-outline-primary mb-2 mr-2" (click)="openVerticallyCentered(content)">Modal vertically centered</button>
+<button class="btn btn-outline-primary mb-2 mr-2" (click)="openVerticallyCentered(content)">Modal vertically centered</button>    -->
+<button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Login</button>
+<div id="id01" class="modal">
+  <form class="modal-content animate" action="/action_page.php">
+    <div class="imgcontainer">
+      <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close">&times;</span>
+      
+      <img src="/src/assets/img_avatar2.png" alt="Avatar" class="avatar">
+    </div>
+
+    <div class="container" style="padding-bottom: 0px;">
+      <label for=""><b>Username</b></label>
+      <input type="text"   placeholder="Enter Username"  ngModel = "usern"  name="uname"  required>
+<br>
+      <label for=""><b>Password</b></label>
+      <input type="password" placeholder="Enter Password" ngModel = "passwrd" name="psw"  required>
+    <br>    
+      <button type="button"  (click)="login(usern,passwrd)" >Login</button>
+      <br>
+      <label>
+        
+        <input type="checkbox" checked="checked" name="remember" style="margin-bottom: 0%"> Remember me
+      </label>
+    </div>
+
+    <div class="container" style="background-color:#f1f1f1" style="width: 80% ; padding-bottom: 0px">
+      <button type="button" onclick="document.getElementById('id01').style.display='none'"   class="cancelbtn">Cancel</button>
+      <span class="psw">Forgot <a href="#">password?</a></span>
+    </div>
+  </form>
+</div>

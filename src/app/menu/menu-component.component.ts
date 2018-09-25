@@ -1,3 +1,4 @@
+import { LoginModalComponent } from './../login-modal/login-modal.component';
 import { SideMenuService } from './../side-menu.service';
 import { RegionComponent } from './../region/region.component';
 import { HeaderService } from './../header.service';

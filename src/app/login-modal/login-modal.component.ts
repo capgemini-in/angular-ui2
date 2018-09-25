@@ -14,7 +14,15 @@ export class LoginModalComponent implements OnInit {
   ngOnInit() {
   }
 
-  openVerticallyCentered(content) {
+login(username,psd)
+{
+ 
+ 
+  alert(username+"This is password also"+"...................."+psd);
+  
+}
+
+   openVerticallyCentered(content) {
     this.modalService.open(content, { centered: true });
   }
 

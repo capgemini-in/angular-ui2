@@ -44,6 +44,9 @@
                                 <li *ngFor="let c of m.subMenus" class=" dropdown">
                                     <a href="#" class="dropdown-toggle " data-toggle="dropdown" (click)="loadComponent(m.menuName, c.subMenuId, c.subMenuName)" role="button" aria-haspopup="true" aria-expanded="false">{{c.subMenuName}}</a>
                                 </li>
+                                <li>
+                                    
+                                </li>
                             </ul>
                         </li>
                     </ul>
@@ -52,7 +55,7 @@
             </nav>
         </div>
     </div>
-
+    <app-login-modal></app-login-modal>
 
 <div class="container main-content" >
         <div class="breadcumbs" *ngIf="currentURL != homePageURL ">
