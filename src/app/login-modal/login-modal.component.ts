@@ -19,6 +19,7 @@ login(username,psd)
  
  
   alert(username+"This is password also"+"...................."+psd);
+  alert(username+"This is password also"+"...................."+psd);
   
 }
 
