@@ -39,6 +39,8 @@ import { LoginModalComponent } from './login-modal/login-modal.component';
 
 
 
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -53,16 +55,13 @@ import { LoginModalComponent } from './login-modal/login-modal.component';
     CustomerProcessComponent,
     BookTestDriveComponent,
     GetQuoteComponent,
-    LoginModalComponent
-    
-    
+    LoginModalComponent   
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     NgbModule.forRoot(),
-    
     BrowserAnimationsModule,
     MatSelectModule,
     Ng2CarouselamosModule,
@@ -74,6 +73,7 @@ import { LoginModalComponent } from './login-modal/login-modal.component';
     NgxHmCarouselModule
     
   ],
+  
 
   providers: [
     MenuItemsService,

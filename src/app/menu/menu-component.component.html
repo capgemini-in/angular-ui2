@@ -50,15 +50,17 @@
                             </ul>
                         </li>
                         <li>
-                                <a href="javascript:void(0)" (click)="openVerticallyCentered(content)">Sign In</a>
+                                <app-login-modal></app-login-modal> 
+                                
                             </li>
                     </ul>
                     </div>
                 </div>
             </nav>
         </div>
-    </div>
-    <app-login-modal></app-login-modal>
+    </div>  
+     
+     
 
 <div class="container main-content" >
         <div class="breadcumbs" *ngIf="currentURL != homePageURL ">

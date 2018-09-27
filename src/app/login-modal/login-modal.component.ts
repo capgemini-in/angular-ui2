@@ -1,6 +1,7 @@
+import { LoginService } from './../services/login.service';
 import { Router } from '@angular/router';
 import { AuthService } from './../services/auth.service';
-import { LoginService } from './../login.service';
+
 import { Component, OnInit } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Subscriber } from 'rxjs';
@@ -21,8 +22,11 @@ export class LoginModalComponent implements OnInit {
   uid:string;
   userType:string;
   status:number;
+  buttonName:string;
 
- constructor(private modalService: NgbModal,private loginService:LoginService, private authService:AuthService,private route:Router) {}
+ constructor(private modalService: NgbModal,private authService:AuthService,private route:Router,private loginService:LoginService) {
+   this.buttonName="Sign In";
+ }
 
   ngOnInit() {
   }
@@ -46,9 +50,7 @@ login(username,psd)
      
       if(this.status==400)
      {
-       this.errorValue="*Please enter the correct username and password"
-       document.getElementById("username").value = "";
-       document.getElementById("password").value = ""; 
+       this.errorValue="*Please enter the correct username and password";
        
      }
 
@@ -57,12 +59,22 @@ login(username,psd)
       this.errorValue="";
        alert(this.uid);
        this.authService.setToken(this.uid); 
+       this.buttonName="Sign out";
       document.getElementById('id01').style.display='none';
-      document.getElementById("username").value = "";
-      document.getElementById("password").value = "";
-       
      }
 
+}
+openModal()
+{
+  if(this.buttonName=="Sign In")
+{
+        document.getElementById('id01').style.display='block';
+}
+else
+{
+  
+       document.getElementById('id01').style.display='none';
+}
 }
 
 
