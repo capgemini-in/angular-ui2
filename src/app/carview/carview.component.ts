@@ -3,6 +3,9 @@ import { GalleryComponent } from './../gallery/gallery.component';
 import { Component, OnInit } from '@angular/core';
 import { Router } from "@angular/router";
 import { Lightbox } from 'angular2-lightbox';
+import { CarService } from './../services/car.service';
+import { HelpersService } from './../services/helpers.service';
+import { Constants } from './../constants';
 
 @Component({
   selector: 'app-carview',
@@ -23,7 +26,9 @@ imgarray=[
   {id:"3",color:"w3-btn w3-blue",img:""}
 ];
 
-  constructor(private router:Router,private _lightbox: Lightbox) {
+constants= new Constants();
+
+  constructor(private router:Router,private _lightbox: Lightbox, private carService: CarService, private helpers: HelpersService) {
     //for the gallery images //
     for (let i = 1; i <= 7; i++) {
       const src = 'src/assets/smallCarImages/' + i + '_extended.jpg';
@@ -118,7 +123,29 @@ imgarray=[
     this.displaygallery="hide";
   }
 
+  loadCarDetails(){
+    let queryParams = this.helpers.get_queryParams();
+    let carId;
+    if(queryParams["id"]){
+      carId = queryParams["id"];
+    }
+
+
+    this.carService.getCars(4).subscribe(response=>{
+      let _this_cpy = this; 
+      let carList = [];
+      carList = response;
+      carList.forEach(function(c){
+          if(c.variantId == carId){
+              _this_cpy.img = _this_cpy.constants["API_BASEURL"]+c["imagePath"];
+          }
+      });
+    });
+
+  }
+
   ngOnInit() {
+    this.loadCarDetails();
   }
 
 }

@@ -39,6 +39,10 @@ import { GetQuoteComponent } from './get-quote/get-quote.component';
 import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
 import { HomeComponent } from './home/home.component';
+import { QuotationListComponent } from './quotation-list/quotation-list.component';
+import { UploadQuoteComponent } from './upload-quote/upload-quote.component';
+import { ModalDialogModule } from 'ngx-modal-dialog';
+import { NgbdModalContent } from './upload-quote/upload-quote.component';
 
 @NgModule({
   declarations: [
@@ -56,13 +60,16 @@ import { HomeComponent } from './home/home.component';
     GetQuoteComponent,
     FooterComponent,
     HeaderComponent,
-    HomeComponent
+    HomeComponent,
+    QuotationListComponent,
+    UploadQuoteComponent,
+    NgbdModalContent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    //NgbModule.forRoot(),
+    NgbModule.forRoot(),
     BrowserAnimationsModule,
     MatSelectModule,
     Ng2CarouselamosModule,
@@ -71,7 +78,8 @@ import { HomeComponent } from './home/home.component';
     GalleryModule.forRoot(),
     LightboxModule,
     AgmCoreModule.forRoot({apiKey: 'AIzaSyBnPXXVu863jNO3wirLptt1RdZT6hcb72o'}),
-    NgxHmCarouselModule
+    NgxHmCarouselModule,
+    ModalDialogModule.forRoot()
   ],
 
   providers: [
@@ -79,6 +87,7 @@ import { HomeComponent } from './home/home.component';
     GoogleMapsAPIWrapper,
     CookieService
   ],
-   bootstrap: [AppComponent]           
+   entryComponents: [NgbdModalContent],
+   bootstrap: [AppComponent, UploadQuoteComponent]           
 })
 export class AppModule { }

@@ -33,7 +33,7 @@
 
 	<div *ngIf="accordian_data[0]['show']">
 		<div class="form-holder">
-			<form class="form-inline cp-form" action="/action_page.php" #ctForm="ngForm" (submit)="formSubmit(0)" >
+			<form class="form-inline cp-form"  #ctForm="ngForm" (submit)="formSubmit(0)" >
 			  <div class="form-group">
 			    <label for="firstName">First Name:</label>
 			    <input type="text" required [(ngModel)]="user_data.firstName" class="form-control" id="firstName" name="firstName" minlength="3" maxlength="20" #firstName="ngModel">
@@ -90,7 +90,7 @@
 			    <label><input type="checkbox"> Remember me</label>
 			  </div-->
 			  <div class="button-group">
-			  <button type="submit" class="btn btn-default" [disabled]="!ctForm.form.valid || !ctForm.form.touched" >PROCEED</button>
+			  <button type="submit" class="btn btn-default" [disabled]="!ctForm.form.valid || !ctForm.form.touched" >NEXT</button>
 			  <button type="reset" class="btn btn-default">RESET</button>
 			  </div>
 
@@ -102,7 +102,7 @@
 	<div *ngIf="accordian_data[1]['show']">
 		<div class="form-holder with-image">
 			<div class="form-box">
-			<form class="form-inline cp-form" action="/action_page.php" #ctForm="ngForm" (submit)="formSubmit(0)" >
+			<form class="form-inline cp-form"  #ctForm2="ngForm" (submit)="formSubmit(1)" >
 			  <div class="form-group">
 			    <label for="variantSelected">Choose Variant:</label>
 			    
@@ -141,8 +141,89 @@
 			    <label><input type="checkbox"> Remember me</label>
 			  </div-->
 			  <div class="button-group">
-			  <button type="submit" class="btn btn-default" [disabled]="!ctForm.form.valid || !ctForm.form.touched" >PROCEED</button>
+			  <button type="submit" class="btn btn-default" [disabled]="!ctForm2.form.valid || !ctForm2.form.touched" >NEXT</button>
 			  <button type="reset" class="btn btn-default">RESET</button>
+			  </div>
+			</form>
+			</div>
+
+			<div class="image-box">
+				<img src="{{imageHostURL}}{{ vehicleList[0]['imagePath'] }}" >
+			</div>
+		</div>
+	</div>
+
+	<div *ngIf="accordian_data[2]['show']">
+		<div class="form-holder with-image">
+			<div class="form-box">
+			<form class="form-inline cp-form"  #ctForm3="ngForm" (submit)="formSubmit(2)" >
+			  <div class="form-group">
+			    <label for="" class="radio">Exchange old vehicle ?</label>
+			    
+			    <!----select class="form-control" name="variantSelected" id="variantSelected" required [(ngModel)]= "user_data.variantSelected" #variantSelected="ngModel">
+			    	<option value=-1 selected="">Select</option>
+			    	<option *ngFor="let v of vehicleList" value="v.variantId">
+			    		{{v.variantName}}
+			    	</option>
+			    </select-->
+			    <label for="exchangeVehicle_1" class="radio">
+			    <input type="radio" name="exchangeVehicle" id="exchangeVehicle_1" [(ngModel)]="user_data.exchangeVehicle" #exchangeVehicle="ngModel" value=1>
+			    Yes
+				</label>
+
+				<label for="financeOption_2" class="radio">
+			    <input type="radio" name="exchangeVehicle" id="exchangeVehicle_2" [(ngModel)]="user_data.exchangeVehicle" #exchangeVehicle="ngModel" value=2>
+			    No
+				</label>
+			    <div class="f_message">
+				    <!--div class="error" *ngIf="variantSelected.errors && variantSelected.errors.required && (variantSelected.dirty || variantSelected.touched)">
+				    	<span class="fa fa-times">&nbsp;</span> Select your desired car variant
+				    </div-->
+				</div>
+			  </div>
+			   <div class="button-group">
+			  <button type="submit" class="btn btn-default" [disabled]="!ctForm3.form.valid" >NEXT</button>
+			  <button type="reset" class="btn btn-default">RESET</button>
+			  </div>
+			</form>
+			</div>
+			<div class="image-box">
+				<img src="{{imageHostURL}}{{ vehicleList[0]['imagePath'] }}" >
+			</div>
+		</div>
+	</div>
+
+	<div *ngIf="accordian_data[3]['show']">
+		<div class="form-holder with-image">
+			<div class="form-box">
+			<form class="form-inline cp-form"  #ctForm="ngForm" (submit)="formSubmit(3)" >
+			  <div class="form-group">
+			    <label for="" class="radio">Finance Required ?</label>
+			    
+			    <!----select class="form-control" name="variantSelected" id="variantSelected" required [(ngModel)]= "user_data.variantSelected" #variantSelected="ngModel">
+			    	<option value=-1 selected="">Select</option>
+			    	<option *ngFor="let v of vehicleList" value="v.variantId">
+			    		{{v.variantName}}
+			    	</option>
+			    </select-->
+			    <label for="financeOption_1" class="radio">
+			    <input type="radio" name="financeOption" id="financeOption_1" [(ngModel)]="user_data.financeOption" #financeOption="ngModel" value=1>
+			    Yes
+				</label>
+
+				<label for="financeOption_2" class="radio">
+			    <input type="radio" name="financeOption" id="financeOption_2" [(ngModel)]="user_data.financeOption" #financeOption="ngModel" value=2>
+			    No
+				</label>
+			    <div class="f_message">
+				    <!--div class="error" *ngIf="variantSelected.errors && variantSelected.errors.required && (variantSelected.dirty || variantSelected.touched)">
+				    	<span class="fa fa-times">&nbsp;</span> Select your desired car variant
+				    </div-->
+				</div>
+				<div class="button-group">
+			  <button type="submit" class="btn btn-default" [disabled]="!ctForm3.form.valid" >NEXT</button>
+			  <button type="reset" class="btn btn-default">RESET</button>
+			  </div>
 			  </div>
 			</form>
 			</div>

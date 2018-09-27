@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import {CarService} from '../services/car.service';
 import {DealerService} from './../services/dealer.service';
 import { SessionManagerService } from './../services/session-manager.service';
+import { HelpersService } from './../services/helpers.service';
+import { GetQuoteTestDriveService } from './../services/get-quote-test-drive.service'
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-get-quote',
@@ -11,18 +14,19 @@ import { SessionManagerService } from './../services/session-manager.service';
 export class GetQuoteComponent implements OnInit {
 
   imageHostURL = "http://10.220.28.100:8082//pocwebapp";
+  formSubmitSuccess=0;
+  timer=10;
 
-  user_data = {
+  userModel = {
   		firstName: "",
   		lastName: "",
-  		mobileNo: "",
+  		mobileNumber: "",
   		email: "",
   		dealerSelected: 1,
-  		variantSelected: -1,
-  		colorSelected: -1,
-      delaerSelected: -1,
+  		variant: { "variantId": -1,"variantName":null, "categoryName":null},
+      dealer: {id: -1},
       stateSelected:-1,
-      citySelected:-1
+      city:{'cityId': -1}
   }
 
   vehicleList:any;
@@ -30,21 +34,39 @@ export class GetQuoteComponent implements OnInit {
   stateList:any;
   cityList:any;
   dealerList:any;
+  variantImage:any;
 
   
 
-  constructor(private carService: CarService, private dealerServ: DealerService, private sessionManager:SessionManagerService) { }
+  constructor(private carService: CarService, private dealerServ: DealerService, private sessionManager:SessionManagerService,private helpers:HelpersService, private getQuoteService: GetQuoteTestDriveService, private route: Router ) { }
 
   ngOnInit() {
   	this.carService.getCars(4).subscribe(response=>{
   		this.vehicleList = response;
+      this.variantImage = this.vehicleList[0]['imagePath'];
   	});
 
     this.dealerServ.getState_City_JSON().subscribe(response => {
       //console.log("state city..");
       this.stateCityList = response;
+      this.userModel.stateSelected = parseInt(this.sessionManager.getCookie('user_selected_state')); 
+      this.userModel.city = {'cityId': parseInt(this.sessionManager.getCookie('user_selected_city'))}; 
+      this.showCities();
+      this.renderDealers();
     });
-    this.user_data.stateSelected = parseInt(this.sessionManager.getCookie('user_selected_state'));
+    
+    let all_queryParams = this.helpers.get_queryParams();
+    if(all_queryParams["variant"]){
+      this.userModel["variant"]["variantId"] = all_queryParams["variant"];
+      
+    }
+    
+    if(all_queryParams["dealer"]){
+
+      this.userModel["dealer"]["id"] =all_queryParams["dealer"];
+    }
+
+    //console.log(this.userModel);
   }
 
 
@@ -52,16 +74,16 @@ export class GetQuoteComponent implements OnInit {
     
     this.cityList="";
     
-    if(!this.user_data.stateSelected || this.user_data.stateSelected==-1){
-        this.user_data.stateSelected= null;
-        this.user_data.citySelected = null;
+    if(!this.userModel.stateSelected || this.userModel.stateSelected==-1){
+        this.userModel.stateSelected= null;
+        this.userModel.city = null;
         this.cityList = null;
     }else{
       try{
-        let stateIndex = this.getStateIndex(this.user_data.stateSelected);
+        let stateIndex = this.getStateIndex(this.userModel.stateSelected);
         this.cityList = this.stateCityList[0]['state'][stateIndex]['city'];
-        //console.log(this.cityList);
-      }catch(e){}
+        console.log(this.cityList);
+      }catch(e){console.log(e)}
     }
   }
 
@@ -76,8 +98,8 @@ export class GetQuoteComponent implements OnInit {
   }
 
   renderDealers(){
-      let state= this.user_data.stateSelected;
-      let city= this.user_data.citySelected;
+      let state= this.userModel.stateSelected;
+      let city= this.userModel.city["cityId"];
 
       if(state && city){
           this.dealerServ.getDealers(state, city).subscribe(response=>{
@@ -91,10 +113,62 @@ export class GetQuoteComponent implements OnInit {
         }
   }
 
-  changeCarImage(){
-    	
+  variantDetailById(vId){
+    let variantDetails = false;
+    for(let i=0;i<this.vehicleList.length;i++){
+      if(this.vehicleList[i]["variantId"] == vId){
+        variantDetails = this.vehicleList[i];
+        break;
+      }
+    }
+    return variantDetails;
   }
 
+  changeCarImage(){
+    	let variantSel = this.userModel.variant["variantId"];
+      console.log("variantSel :"+variantSel);
+      if(variantSel>0){
+          let variantDetails= this.variantDetailById(variantSel);
+          this.variantImage= variantDetails["imagePath"];
+      }
+  }
 
+  formSubmit(){
+    this.userModel["userProfiles"]= [{"id":3,"type":"CUSTOMER"}];
+    this.userModel["city"]= {'cityId' : this.userModel["city"]['cityId']};
+    this.userModel["dealer"]= {'id' : this.userModel["dealer"]['id']};
+
+    let variantDetail= this.variantDetailById(this.userModel["variant"]["variantId"]);
+    this.userModel["variant"] = {'variantId': variantDetail["variantId"], "categoryName": variantDetail["categoryName"], "variantName": variantDetail["variantName"] };
+
+    let requestJSON = {};
+      requestJSON["user"]= {
+                                "firstName" : this.userModel["firstName"] ,
+                                "lastName" : this.userModel["lastName"],
+                                "mobileNumber": this.userModel["mobileNumber"],
+                                "email" : this.userModel["email"],
+                                "userProfiles" : [{"id":3,"type":"CUSTOMER"}] 
+                            };
+       requestJSON["variant"]= this.userModel["variant"];
+       requestJSON["dealer"]= this.userModel["dealer"];
+       requestJSON["city"]= this.userModel["city"];
+
+    this.getQuoteService.postGetQuote(requestJSON).subscribe(response=>{
+       console.log(response);
+       if(response && response["status"]  ==200){
+          this.formSubmitSuccess=1;
+
+          setInterval(()=>{
+              this.timer--;
+          },1000);
+
+          setTimeout(()=>{
+            this.route.navigate(["Cars","Showroom"], {queryParams: {category:4}} );
+            this.formSubmitSuccess=0;
+          },10000);
+       }
+    });
+    return false;
+  }
 
 }

@@ -4,6 +4,7 @@
 #body
 {
     background-image: url("/src/assets/MainImg.jpg");
+    
 }
 
 .main-content-wrapper{
@@ -15,4 +16,20 @@
 body, html{
 	 font-family: 'Calibri' !important;
 	 font-size: 14px !important;
+}
+
+.header h2{
+	    margin: 0 0 15px!important;
+    font-size: 26px;
+    text-transform: uppercase;
+    color: #343a40;
+}
+
+
+ngb-modal-window.modal.fade.show.d-block {
+    opacity: 1!important;
+}
+
+.modal-backdrop{
+    opacity: 0.5!important;
 }

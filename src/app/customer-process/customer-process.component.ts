@@ -8,12 +8,12 @@ import {CarService} from '../services/car.service';
 })
 export class CustomerProcessComponent implements OnInit {
 
-  imageHostURL = "http://10.220.28.100:8082//pocwebapp";
+  imageHostURL = "http://10.220.28.100:8083/pocwebapp";
 
   accordian_data = [
  	{"heading": "PERSONAL INFORMATION", show: true, button: "active"},
- 	{"heading": "VEHICLE DETAILS"},
- 	{"heading": "EXCHANGE DETAILS"},
+ 	{"heading": "VEHICLE DETAILS", show: false, button: ""},
+ 	{"heading": "EXCHANGE DETAILS", show: false, button: ""},
  	{"heading": "FINANCE"},
  	{"heading": "CHECKOUT"}
   ];
@@ -25,7 +25,12 @@ export class CustomerProcessComponent implements OnInit {
   		email: "",
   		dealerSelected: 1,
   		variantSelected: -1,
-  		colorSelected: -1
+  		colorSelected: -1,
+      exchangeVehicle: 1,
+      financeOption: 1,
+      priceOffered: 0,
+      depositAmount:0,
+      paymentStatus:'complete'
   }
 
   active_step = 0;
@@ -51,7 +56,7 @@ export class CustomerProcessComponent implements OnInit {
   	this.active_step= this.active_step +1;
   	this.accordian_data[this.active_step]["show"] = true;
   	this.accordian_data[this.active_step]["button"] = "active";
-
+    console.log(this.user_data);
   }
 
 }

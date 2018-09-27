@@ -14,7 +14,7 @@
 				  &nbsp;
 				  <div class="form-group"  (change)="renderDealers()"  >
 				    <select name="ld-city" [(ngModel)]="citySelected">
-						<option>--Select City--</option>
+						<option value=-1>--Select City--</option>
 						<option *ngFor="let c of only_cities" value={{c.cityId}} >{{c.cityName}}</option>
 					</select>
 				  </div>

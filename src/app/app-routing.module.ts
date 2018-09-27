@@ -12,6 +12,8 @@ import { CustomerProcessComponent } from './customer-process/customer-process.co
 import {BookTestDriveComponent} from './book-test-drive/book-test-drive.component';
 import { GetQuoteComponent } from './get-quote/get-quote.component';
 import { HomeComponent } from './home/home.component'
+import { QuotationListComponent } from './quotation-list/quotation-list.component';
+import { UploadQuoteComponent } from './upload-quote/upload-quote.component';
 
 const routes: Routes = [
   {
@@ -67,6 +69,14 @@ const routes: Routes = [
     {
       path: 'book-test-drive',
       component: BookTestDriveComponent
+    },
+    {
+      path: 'quotation-list',
+      component: QuotationListComponent
+    },
+    {
+      path: 'upload-quote',
+      component: UploadQuoteComponent
     }
     ]
   },

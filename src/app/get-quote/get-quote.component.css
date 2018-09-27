@@ -40,6 +40,18 @@ div.step-heading h3{
     padding: 30px 15em;
 }
 
+.message-holder{
+    float: left;
+    width: 100%;
+    padding: 2em 2em 1em 2em;
+    border: 1px dotted #d6e9c6;
+}
+
+
+.message-holder .alert{
+    text-align: center;
+}
+
 .cp-form .form-group {
     padding: 5px 5px;
     width: 50%;

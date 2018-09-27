@@ -81,15 +81,17 @@ background-size:100%;
     width: 100%;
     float: left;
     overflow: auto;
-    padding: 0px 0 0 35%;
+    padding: 0px 0 0 17em;
 }
 
 .form-group-wrapper .form-group{
-    margin-bottom: 1rem;
-    display: block;
+   margin-bottom: 1rem;
+    /* display: inline-block; */
     float: left;
     margin-left: 2px;
-    margin-right: 100px;
+    /* margin-right: 100px; */
+    width: auto;
+    width: 150px;
 }
 
 .form-group-wrapper .space{
