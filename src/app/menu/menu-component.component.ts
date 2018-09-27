@@ -10,7 +10,7 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/switchMap';
 import { MenuItemsService } from './../menu-items.service';
 import { Component, OnInit } from '@angular/core';
-import {LoginModalComponent} from './../login-modal/login-modal.component';
+
 
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
@@ -19,7 +19,7 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
   templateUrl: './menu-component.component.html',
   styleUrls: ['./menu-component.component.css']
 })
-export class MenuComponentComponent extends LoginModalComponent implements OnInit  {
+export class MenuComponentComponent implements OnInit  {
    menu_width: number = 0;
    menu =null;
    header=null;
@@ -40,7 +40,7 @@ export class MenuComponentComponent extends LoginModalComponent implements OnIni
   v:NgbModal
   constructor(private menuservice:MenuItemsService,private headservice:HeaderService, private sideMenuSerive:SideMenuService,private router: Router, private activateRoute: ActivatedRoute) {
     
-   super(null);
+   
    console.log(router);
    this.breadCumbs = this.activateRoute.snapshot.data["breadCumb"];
    console.log(this.breadCumbs);

@@ -38,6 +38,7 @@ import { LoginModalComponent } from './login-modal/login-modal.component';
 
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -53,6 +54,7 @@ import { LoginModalComponent } from './login-modal/login-modal.component';
     BookTestDriveComponent,
     GetQuoteComponent,
     LoginModalComponent
+    
     
   ],
   imports: [
