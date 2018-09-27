@@ -8,7 +8,7 @@ import { RegionComponent } from './region/region.component';
 
 import { FormsModule }   from '@angular/forms'
 
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import {NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
@@ -36,6 +36,7 @@ import { AgmCoreModule, GoogleMapsAPIWrapper } from '@agm/core';
 import { CustomerProcessComponent } from './customer-process/customer-process.component';
 import { BookTestDriveComponent } from './book-test-drive/book-test-drive.component';
 import { GetQuoteComponent } from './get-quote/get-quote.component';
+
 import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
 import { HomeComponent } from './home/home.component';
@@ -43,6 +44,10 @@ import { QuotationListComponent } from './quotation-list/quotation-list.componen
 import { UploadQuoteComponent } from './upload-quote/upload-quote.component';
 import { ModalDialogModule } from 'ngx-modal-dialog';
 import { NgbdModalContent } from './upload-quote/upload-quote.component';
+import { LoginModalComponent } from './login-modal/login-modal.component';
+
+
+
 
 @NgModule({
   declarations: [
@@ -64,6 +69,7 @@ import { NgbdModalContent } from './upload-quote/upload-quote.component';
     QuotationListComponent,
     UploadQuoteComponent,
     NgbdModalContent
+    LoginModalComponent
   ],
   imports: [
     BrowserModule,
@@ -80,6 +86,7 @@ import { NgbdModalContent } from './upload-quote/upload-quote.component';
     AgmCoreModule.forRoot({apiKey: 'AIzaSyBnPXXVu863jNO3wirLptt1RdZT6hcb72o'}),
     NgxHmCarouselModule,
     ModalDialogModule.forRoot()
+    NgxHmCarouselModule
   ],
 
   providers: [

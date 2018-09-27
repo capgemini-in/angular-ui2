@@ -77,6 +77,7 @@ const routes: Routes = [
     {
       path: 'upload-quote',
       component: UploadQuoteComponent
+      component: BookTestDriveComponent,
     }
     ]
   },

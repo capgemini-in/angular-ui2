@@ -1,3 +1,4 @@
+import { LoginModalComponent } from './../login-modal/login-modal.component';
 import { SideMenuService } from './../side-menu.service';
 import { RegionComponent } from './../region/region.component';
 import { HeaderService } from './../header.service';
@@ -11,13 +12,14 @@ import { MenuItemsService } from './../menu-items.service';
 import { Component, OnInit } from '@angular/core';
 
 
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-menu-component',
   templateUrl: './menu-component.component.html',
   styleUrls: ['./menu-component.component.css']
 })
-export class MenuComponentComponent implements OnInit {
+export class MenuComponentComponent implements OnInit  {
    menu_width: number = 0;
    menu =null;
    header=null;
@@ -35,9 +37,9 @@ export class MenuComponentComponent implements OnInit {
    }
      
    breadCumbs=[]; 
-
+  v:NgbModal
   constructor(private menuservice:MenuItemsService,private headservice:HeaderService, private sideMenuSerive:SideMenuService,private router: Router, private activateRoute: ActivatedRoute) {
-   console.log(activateRoute);
+
    this.breadCumbs = this.activateRoute.snapshot.data["breadCumb"];
    console.log(this.breadCumbs);
    this.header=headservice.Header;
