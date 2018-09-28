@@ -32,7 +32,7 @@ export class MenuItemsService {
   }
 
   getMenus():Observable<any>{
-    return this.http.get("http://10.220.28.100:8082/pocwebapp/model/menus/");
+    return this.http.get("http://10.220.28.100:8083/pocwebapp/model/menus/");
   }
   
 }

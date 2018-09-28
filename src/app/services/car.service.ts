@@ -10,6 +10,6 @@ export class CarService {
   constructor(private http: HttpClient) { }
 
   getCars(categoryId):Observable<any>{
-    return this.http.get("http://10.220.28.100:8082/pocwebapp/model/variant/?subMenuId="+categoryId);
+    return this.http.get("http://10.220.28.100:8083/pocwebapp/model/variant/?subMenuId="+categoryId);
   }
 }

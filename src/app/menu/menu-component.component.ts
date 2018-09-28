@@ -37,7 +37,7 @@ export class MenuComponentComponent implements OnInit {
    breadCumbs=[]; 
 
   constructor(private menuservice:MenuItemsService,private headservice:HeaderService, private sideMenuSerive:SideMenuService,private router: Router, private activateRoute: ActivatedRoute) {
-   console.log(router);
+   console.log(activateRoute);
    this.breadCumbs = this.activateRoute.snapshot.data["breadCumb"];
    console.log(this.breadCumbs);
    this.header=headservice.Header;

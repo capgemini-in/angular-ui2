@@ -3,6 +3,9 @@
   <!-- Section 1 starts -->
   <div id="cover" class="{{ displaycover }}" >
       <div class="maingallery main-content-wrapper">
+        <div class="header">
+          <h2>{{variantName}}</h2>
+        </div>
       <!--div id=main class="item_wrap"-->
       <div class="mkv col-md-3" style="">
         <div class="title">
@@ -20,7 +23,7 @@
               <a [routerLink]='["./../book-test-drive"]'><img src="src/assets/test.png"> </a>
         </div>
         <div class="chekOut">
-              <a [routerLink]='["./../get-quote"]'><!--img src="src/assets/price.png"--> 
+              <a [routerLink]='["./../locate-dealers"]' [queryParams]="{'variant':1}"><!--img src="src/assets/price.png"--> 
                 <button class="get-quote-btn">
                 <span class="content">Get Quote</span>
                 <span class="arrow"><i class="fa fa-angle-right small"></i><i class="fa fa-angle-right big"></i></span>

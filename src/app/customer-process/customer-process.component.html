@@ -33,7 +33,7 @@
 
 	<div *ngIf="accordian_data[0]['show']">
 		<div class="form-holder">
-			<form class="form-inline cp-form" action="/action_page.php" #ctForm="ngForm" (submit)="formSubmit(0)" >
+			<form class="form-inline cp-form"  #ctForm="ngForm" (submit)="formSubmit(0)" >
 			  <div class="form-group">
 			    <label for="firstName">First Name:</label>
 			    <input type="text" required [(ngModel)]="user_data.firstName" class="form-control" id="firstName" name="firstName" minlength="3" maxlength="20" #firstName="ngModel">
@@ -90,7 +90,7 @@
 			    <label><input type="checkbox"> Remember me</label>
 			  </div-->
 			  <div class="button-group">
-			  <button type="submit" class="btn btn-default" [disabled]="!ctForm.form.valid || !ctForm.form.touched" >PROCEED</button>
+			  <button type="submit" class="btn btn-default" [disabled]="!ctForm.form.valid || !ctForm.form.touched" >NEXT</button>
 			  <button type="reset" class="btn btn-default">RESET</button>
 			  </div>
 
@@ -102,13 +102,13 @@
 	<div *ngIf="accordian_data[1]['show']">
 		<div class="form-holder with-image">
 			<div class="form-box">
-			<form class="form-inline cp-form" action="/action_page.php" #ctForm="ngForm" (submit)="formSubmit(0)" >
+			<form class="form-inline cp-form"  #ctForm2="ngForm" (submit)="formSubmit(1)" >
 			  <div class="form-group">
 			    <label for="variantSelected">Choose Variant:</label>
 			    
 			    <select class="form-control" name="variantSelected" id="variantSelected" required [(ngModel)]= "user_data.variantSelected" #variantSelected="ngModel">
 			    	<option value=-1 selected="">Select</option>
-			    	<option *ngFor="let v of vehicleList" value="v.variantId">
+			    	<option *ngFor="let v of vehicleList" value={{v.variantId}}>
 			    		{{v.variantName}}
 			    	</option>
 			    </select>
@@ -141,16 +141,170 @@
 			    <label><input type="checkbox"> Remember me</label>
 			  </div-->
 			  <div class="button-group">
-			  <button type="submit" class="btn btn-default" [disabled]="!ctForm.form.valid || !ctForm.form.touched" >PROCEED</button>
+			  <button type="submit" class="btn btn-default" [disabled]="" >NEXT</button>
 			  <button type="reset" class="btn btn-default">RESET</button>
 			  </div>
 			</form>
 			</div>
 
 			<div class="image-box">
-				<img src="{{imageHostURL}}{{ vehicleList[0]['imagePath'] }}" >
+				<img src="{{imageHostURL}}{{variantImage}}" >
 			</div>
 		</div>
 	</div>
 
+	<div *ngIf="accordian_data[2]['show']">
+		<div class="form-holder with-image">
+			<div class="form-box">
+			<form class="form-inline cp-form"  #ctForm3="ngForm" (submit)="formSubmit(2)" >
+			  <div class="form-group">
+			    <label for="" class="radio">Exchange old vehicle ?</label>
+			    
+			    <!----select class="form-control" name="variantSelected" id="variantSelected" required [(ngModel)]= "user_data.variantSelected" #variantSelected="ngModel">
+			    	<option value=-1 selected="">Select</option>
+			    	<option *ngFor="let v of vehicleList" value="v.variantId">
+			    		{{v.variantName}}
+			    	</option>
+			    </select-->
+			    <label for="exchangeVehicle_1" class="radio">
+			    <input type="radio" name="exchangeVehicle" id="exchangeVehicle_1" [(ngModel)]="user_data.exchangeVehicle" #exchangeVehicle="ngModel" value=1 checked>
+			    Yes
+				</label>
+
+				<label for="financeOption_2" class="radio">
+			    <input type="radio" name="exchangeVehicle" id="exchangeVehicle_2" [(ngModel)]="user_data.exchangeVehicle" #exchangeVehicle="ngModel" value=2>
+			    No
+				</label>
+			    <div class="f_message">
+				    <!--div class="error" *ngIf="variantSelected.errors && variantSelected.errors.required && (variantSelected.dirty || variantSelected.touched)">
+				    	<span class="fa fa-times">&nbsp;</span> Select your desired car variant
+				    </div-->
+				</div>
+			  </div>
+			   <div class="button-group">
+			  <button type="submit" class="btn btn-default" [disabled]="!ctForm3.form.valid" >NEXT</button>
+			  <button type="reset" class="btn btn-default">RESET</button>
+			  </div>
+			</form>
+			</div>
+			<div class="image-box">
+				<img src="{{imageHostURL}}{{ variantImage }}" >
+			</div>
+		</div>
+	</div>
+
+	<div *ngIf="accordian_data[3]['show']">
+		<div class="form-holder with-image">
+			<div class="form-box">
+			<form class="form-inline cp-form"  #ctForm="ngForm" (submit)="formSubmit(3)" #ctForm4="ngForm" >
+			  <div class="form-group left-aligned">
+			    <label for="" class="radio">Finance Required ?</label>
+			 
+			    <label for="financeOption_1" class="radio">
+			    <input type="radio" name="financeOption" id="financeOption_1" checked [(ngModel)]="user_data.financeOption" #financeOption="ngModel" value=1>
+			    Yes
+				</label>
+
+				<label for="financeOption_2" class="radio">
+			    <input type="radio" name="financeOption" id="financeOption_2" [(ngModel)]="user_data.financeOption" #financeOption="ngModel" value=2>
+			    No
+				</label>
+			    <div class="f_message">
+				</div>
+			  </div>
+
+			  <div class="form-group left-aligned">
+			    <label for="" class="">Actual Price</label>
+			    <input type="text" readonly="true" value="10,000,00" class="form-control">
+			   </div>
+
+			   <div class="form-group">
+			    <label for="" class="">Price Offered</label>
+			    <input type="text" readonly="true" value="9,50,000" class="form-control">
+			   </div>
+
+			  <div class="button-group">
+			  	<button type="submit" class="btn btn-default" [disabled]="!ctForm4.form.valid" >NEXT</button>
+			  	<button type="reset" class="btn btn-default">RESET</button>
+			  </div>
+
+			</form>
+			</div>
+
+			<div class="image-box">
+				<img src="{{imageHostURL}}{{ variantImage }}" >
+			</div>
+		</div>
+	</div>
+
+	<div *ngIf="accordian_data[4]['show']">
+		<div class="form-holder with-image no-border">
+			
+			<div class="image-box">
+				<div class="terms-conditions">
+					<h3>TERMS & CONDITION</h3>
+					<ul>
+						<li>Payment(s) through this Service may only be made with a Credit Card, Debit card or Net
+	                     Banking.</li>
+	                    <li>Before using this Service, it is recommended that the user shall make necessary enquiry
+						about the charges or fees payable against the Credit/Debit card used from Credit Card or
+						the Debit Card service provider i.e. the respective Bank</li>
+						<li>The credit card information supplied at the time of using the service is processed by the
+						payment gateway of the service provider and is not supplied to NID.</li>
+					</ul>
+				</div>
+			</div>
+
+			<div class="form-box right-form">
+				
+			<form class="form-inline cp-form"  #ctForm5="ngForm" (submit)="checkout()" >
+			  <div class="form-group left-aligned">
+			    <label for="" class="half">Deposit Amount</label>
+			    <label class="info half">{{depositAmount}}
+			    </label>
+			   </div>
+
+			   <div class="form-group left-aligned">
+			    <label for="" class="half">Car Variant</label>
+			    <label class="info half">Variant Name
+			    </label>
+			   </div>
+
+			   <div class="form-group left-aligned">
+			    <label for="" class="half">Dealer Name</label>
+			    <label class="info half">Modi Hyundai
+			    </label>
+			   </div>
+
+			   <div class="form-group left-aligned">
+			    <label for="" class="half">Address</label>
+			    <label class="info half">Maharashtra, Mumbai
+			    </label>
+			   </div>
+
+				<div class="button-group">
+			  		<button type="submit" class="btn btn-default" [disabled]="!ctForm5.form.valid" onclick=scriptClick(this) id={{user_data|json}} >Checkout</button>
+			  		<button class="btn btn-default">Back</button>
+			  	</div>
+		
+			</form>
+			</div>
+
+			
+		</div>
+	</div>
+
 </div>
+
+
+<div [hidden]="true">
+     <form class="example-form" id="addtocart_form" target="_blank" action="https://www.paypal.com/cgi-bin/webscr" method="post" #atcForm1>
+              <input type="text" placeholder="cmd" name="cmd" value="_cart" />
+              <input type="text" id="business" name="business" value="kin@sss.com">
+              <input type="text" name="add" value=1>
+              <input type="text" id="item_name" name="item_name" value="">
+              <input type="text" id="currency_code" name="currency_code" value="INR">
+              <input type="text" id="amount" name="amount" value="">
+            
+     </form>
+   </div>

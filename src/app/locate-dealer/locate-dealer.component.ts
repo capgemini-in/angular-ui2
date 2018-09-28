@@ -3,7 +3,8 @@ import {DealerService} from './../services/dealer.service';
 
 import { MapsAPILoader, AgmMap,LatLngBounds } from '@agm/core';
 import { GoogleMapsAPIWrapper } from '@agm/core/services';
-import { Router } from "@angular/router";
+import { Router, ActivatedRoute } from "@angular/router";
+import { SessionManagerService } from './../services/session-manager.service';
 
 declare var google: any;
 
@@ -41,7 +42,7 @@ export class LocateDealerComponent implements OnInit {
 
   stateSelected = null;
   citySelected = null;
-  
+  scope= null;
 
   markerList = new Array();
 
@@ -66,19 +67,30 @@ export class LocateDealerComponent implements OnInit {
 
   constructor( private dealerServ: DealerService, public mapsApiLoader: MapsAPILoader,
               private zone: NgZone,
-              private wrapper: GoogleMapsAPIWrapper, private route: Router ) { 
-       this.mapsApiLoader = mapsApiLoader;
-        this.zone = zone;
-        this.wrapper = wrapper;
+              private wrapper: GoogleMapsAPIWrapper, private route: Router,
+              private sessionManager: SessionManagerService,
+              private activatedRoute: ActivatedRoute ) { 
+      this.mapsApiLoader = mapsApiLoader;
+      this.zone = zone;
+      this.wrapper = wrapper;
 
+       if(this.activatedRoute.snapshot.data && this.activatedRoute.snapshot.data["scope"]){
+            this.scope = this.activatedRoute.snapshot.data["scope"];
+       }     
   }
 
   ngOnInit() {
   	this.dealerServ.getState_City_JSON().subscribe(response => {
-  		console.log("state city..");
-  		this.states_cities = response;
-  	});
-
+    		this.states_cities = response;
+    	  if(this.sessionManager.checkCookie('user_selected_state')){
+          this.stateSelected =this.sessionManager.getCookie('user_selected_state');
+          this.showCities();
+          if(this.sessionManager.checkCookie('user_selected_city')){
+            this.citySelected =this.sessionManager.getCookie('user_selected_city');
+          }
+          this.renderDealers()
+        }
+    });
   }
 
   showCities(){
@@ -95,7 +107,7 @@ export class LocateDealerComponent implements OnInit {
 	  		console.log("stateIndex :"+stateIndex);
 	  		this.only_cities = this.states_cities[0]['state'][stateIndex]['city'];
 	  		//console.log(this.only_cities);
-	  	}catch(e){}
+	  	}catch(e){console.log(e)}
   	}
   }
 
@@ -114,7 +126,7 @@ export class LocateDealerComponent implements OnInit {
   		let city= this.citySelected;
       let this_cpy = this;
      // var bounds = new google.maps.LatLngBounds();
-
+     //alert(city);
   		if(state && city){
   				this.dealerServ.getDealers(state, city).subscribe(response=>{
   					try{
@@ -136,14 +148,14 @@ export class LocateDealerComponent implements OnInit {
 
               this.map.mapReady.subscribe(map => {
                 const bounds: LatLngBounds = new google.maps.LatLngBounds();
-                alert("hi..")
+                //alert("hi..")
                 for (const mm of this.markerList) {
                   bounds.extend(new google.maps.LatLng(mm.lat, mm.lng));
                 }
                 map.fitBounds(bounds);
               });
             
-            }catch(e){}
+            }catch(e){console.log(e)}
             console.log(this.markerList);
   				});
   		}
@@ -154,8 +166,21 @@ export class LocateDealerComponent implements OnInit {
         });*/
   }
 
+  checkVariant(){
+    let queryParams = this.activatedRoute.queryParams["value"];
+    if(queryParams && queryParams["variant"]){
+      return queryParams["variant"];
+    }
+    return false;
+  }
+
   btn_action(dealer_id,action){
-    this.route.navigate(["./Cars/"+action],{queryParams: {dealer: dealer_id}} );
+    let queryParamsValue = {dealer: dealer_id};
+    let variant = this.checkVariant();
+    if(variant){
+      queryParamsValue["variant"] = variant;
+    }
+    this.route.navigate(["./Cars/"+action],{queryParams:queryParamsValue } );
   }
 
 }

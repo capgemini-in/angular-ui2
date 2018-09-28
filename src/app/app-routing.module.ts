@@ -11,6 +11,9 @@ import { LocateDealerComponent } from './locate-dealer/locate-dealer.component';
 import { CustomerProcessComponent } from './customer-process/customer-process.component';
 import {BookTestDriveComponent} from './book-test-drive/book-test-drive.component';
 import { GetQuoteComponent } from './get-quote/get-quote.component';
+import { HomeComponent } from './home/home.component'
+import { QuotationListComponent } from './quotation-list/quotation-list.component';
+import { UploadQuoteComponent } from './upload-quote/upload-quote.component';
 
 const routes: Routes = [
   {
@@ -51,6 +54,11 @@ const routes: Routes = [
       component: LocateDealerComponent
     },
     {
+        path: 'select-dealer',
+        component: LocateDealerComponent,
+        data: {scope: 'select-dealer'}  
+    },
+    {
       path: 'book-online',
       component: CustomerProcessComponent 
     },
@@ -61,6 +69,14 @@ const routes: Routes = [
     {
       path: 'book-test-drive',
       component: BookTestDriveComponent
+    },
+    {
+      path: 'quotation-list',
+      component: QuotationListComponent
+    },
+    {
+      path: 'upload-quote',
+      component: UploadQuoteComponent
     }
     ]
   },
@@ -69,6 +85,29 @@ const routes: Routes = [
       component: TestSlideComponent
     }
   ];
+
+
+const newRoutes:Routes = [
+  {
+  path: 'selectRegion',
+  component: RegionComponent
+  },
+  {
+    path: "home",
+    component: HomeComponent,
+    children:[
+      {
+        path: 'Showroom',
+        component: ModelComponent,
+        data: {'submenu': 'test'}
+      },
+      {
+        path: 'get-quote',
+        component: GetQuoteComponent 
+      }
+    ]
+  }
+]
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

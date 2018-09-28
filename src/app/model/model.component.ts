@@ -13,7 +13,7 @@ export class ModelComponent implements OnInit {
 
   modelNames:any;
   carList: any;
-  imageHostURL = "http://10.220.28.100:8082//pocwebapp";
+  imageHostURL = "http://10.220.28.100:8083//pocwebapp";
   breadCumbs=[];
 
   constructor(private modelService:ModelService,private  router: Router, private carService: CarService, private menuComp: MenuComponentComponent, private activateRoute: ActivatedRoute) { 

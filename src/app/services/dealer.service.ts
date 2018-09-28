@@ -15,7 +15,7 @@ export class DealerService {
   }
 
   getDealers(state, city){
-  	return this.http.get("http://10.220.28.100:8082/pocwebapp/model/dealers/?stateID="+state+"&cityId="+city);
+  	return this.http.get("http://10.220.28.100:8083/pocwebapp/model/dealers/?stateID="+state+"&cityId="+city);
   }
 
 
