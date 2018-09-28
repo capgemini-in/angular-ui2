@@ -12,6 +12,7 @@ import {SessionManagerService} from './../services/session-manager.service';
 })
 export class CustomerProcessComponent implements OnInit {
 
+  
   imageHostURL = "http://10.220.28.100:8083/pocwebapp";
 
   accordian_data = [
@@ -48,6 +49,7 @@ export class CustomerProcessComponent implements OnInit {
   depositAmount =15000;
   priceOffered= 850000;
 
+  success=0;
 
   constructor(private carService: CarService, private bookService: GetQuoteTestDriveService, private loginService: LoginService, private authService: AuthService, private sessionManager: SessionManagerService) { }
 
@@ -118,7 +120,12 @@ export class CustomerProcessComponent implements OnInit {
     };
 
     this.bookService.postBookOnline(requestJson).subscribe(response=>{
-        console.log(response);
+        if(response && response.status==200){
+          alert("success");
+          this.success=1;
+        }else{
+          this.success=-1;
+        }
     });
 
   }

@@ -37,4 +37,8 @@ export class GetQuoteTestDriveService {
     return this.http.post(this.constants.API_BASEURL+"/model/bookingRequest/", requestJson, this.httpOptions);
   }
 
+  getQuotations_forCustomers(userId){
+    return this.http.get(this.constants.API_BASEURL+"/model/getQuotation/?userId="+userId);
+  }
+
 }

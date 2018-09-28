@@ -46,6 +46,12 @@
                                 </li>
                             </ul>
                         </li>
+                        <li *ngIf="userType==1">
+                            <a  href="#" class="" [routerLink]='["./quotation-list"]'>Quotations</a>
+                        </li>
+                        <li *ngIf="userType==2">
+                            <a  href="#" class="" [routerLink]='["./your-quotation"]'>Your Quotation</a>
+                        </li>
                         <li>
                             <app-login-modal></app-login-modal> 
                         </li> 

@@ -2,6 +2,14 @@
 	<div class="header">
 		<h2>Book Online</h2>
 	</div>
+
+	<div *ngIf="success" class="message-holder">
+		<div class="alert alert-success">
+			<strong>Thanks!</strong> Your booking was successful. 
+			
+		</div>
+	</div>
+	<div *ngIf="!success==1">
 	<div class="accordian">
 		<button [class]="accordian_data[0]['button']" >
 			1
@@ -293,7 +301,7 @@
 			
 		</div>
 	</div>
-
+	</div>
 </div>
 
 
@@ -305,6 +313,5 @@
               <input type="text" id="item_name" name="item_name" value="">
               <input type="text" id="currency_code" name="currency_code" value="INR">
               <input type="text" id="amount" name="amount" value="">
-            
      </form>
    </div>

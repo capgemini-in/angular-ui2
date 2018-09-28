@@ -1,6 +1,6 @@
 <div class="maingallery main-content-wrapper">
 	<div class="header">
-		<h2>Quotation Request</h2>
+		<h2>Quotation Response</h2>
 	</div>
 	<div>
 		<table class="table table-striped">
@@ -12,15 +12,17 @@
     <tbody>
       <tr *ngFor="let d of quotationList">
       	<td>{{d.quotation_id}}</td>
-        <td>{{d.user["firstName"]}} {{d.user["lastName"]}}</td>
+        <td>{{d.dealer["name"] }}</td>
         <td>
-        	<i class="fa fa-envelope">&nbsp;</i>{{d.user["email"]}} <br/> 
-        	<i class="fa fa-mobile">&nbsp;</i>{{d.user["mobileNumber"]}} </td>
-        <td>{{d.variant["variantName"]}}</td>
+        	<i class="fa fa-envelope">&nbsp;</i>{{d.dealer["email"]}} <br/> 
+        	<i class="fa fa-mobile">&nbsp;</i>{{d.dealer["mobileNumber"]}} 
+        </td>
+        <td>{{d.dealer["address"]}} - {{d.dealer["pincode"]}}</td>
+        <td>Rs. {{d.discountedPrice}}</td>
         <td>
         	<button class="btn-primary"  (click)="uploadQuote(d.quotation_id)">
         	<i class="fa fa-edit" title="Respond"></i>
-        	Upload Quote
+        	 Book Online
         	</button>
         </td>
       </tr>

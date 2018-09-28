@@ -14,6 +14,7 @@ import { GetQuoteComponent } from './get-quote/get-quote.component';
 import { HomeComponent } from './home/home.component'
 import { QuotationListComponent } from './quotation-list/quotation-list.component';
 import { UploadQuoteComponent } from './upload-quote/upload-quote.component';
+import {CustomerQuotationViewComponent} from './customer-quotation-view/customer-quotation-view.component';
 
 const routes: Routes = [
   {
@@ -77,6 +78,10 @@ const routes: Routes = [
     {
       path: 'upload-quote',
       component: UploadQuoteComponent
+    },
+    {
+      path: 'your-quotation',
+      component: CustomerQuotationViewComponent
     }
     ]
   },
