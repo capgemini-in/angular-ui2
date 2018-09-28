@@ -32,4 +32,9 @@ export class GetQuoteTestDriveService {
     return this.http.post(this.constants.API_BASEURL+"/files/uploadQuotation/", input, this.httpOptions);
   }
 
+  postBookOnline(requestJson){
+    console.log(requestJson);
+    return this.http.post(this.constants.API_BASEURL+"/model/bookingRequest/", requestJson, this.httpOptions);
+  }
+
 }

@@ -19,6 +19,7 @@ displaycover="blank";
 display360="hide";
 displaygallery="hide";
 private _album:Array<any>= [];
+variantName;
 
 imgarray=[
   {id:"1",color:"w3-btn w3-red",img:"src/assets/carimage.png"},
@@ -138,9 +139,12 @@ imgarray=[
       carList.forEach(function(c){
           if(c.variantId == carId){
               _this_cpy.img = _this_cpy.constants["API_BASEURL"]+c["imagePath"];
+              _this_cpy.variantName = c["variantName"];
           }
       });
     });
+
+    
 
   }
 

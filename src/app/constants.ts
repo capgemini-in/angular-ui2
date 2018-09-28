@@ -13,6 +13,7 @@ export class Constants {
 
 
 	QUOTATION_TBL_HEADERS = ["Id" ,"Name", "Contact", "Variant", "Action"];
+	CUST_QUOTATION_TBL_HEADERS= ["SR.NO", "Dealer Name", "Contact", "Address", "Price Offered", "Files"];	
 
 	DUMMY_DATA = [
 				    {

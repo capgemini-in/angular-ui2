@@ -30,9 +30,9 @@ export class QuotationListComponent implements OnInit {
   	this.quotationList = this.constants.DUMMY_DATA;
   }
 
-  uploadQuote() {
+  uploadQuote(qtn_id) {
   	let obj = new UploadQuoteComponent(this.modalService);
-  	obj.open(20);
+  	obj.open(qtn_id);
   }
 
 }

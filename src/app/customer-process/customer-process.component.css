@@ -131,3 +131,44 @@ label.radio{
     width: auto!important;
 }
 
+.left-aligned{
+    width: 100% !important;
+}
+
+.left-aligned input.form-control{
+    max-width: 175px!important;
+}
+
+.terms-conditions h3{
+    font-size: 18px;
+    font-family: 'Quicksand', sans-serif;
+}
+
+.terms-conditions ul{
+        padding: 0px 15px;
+}
+
+.terms-conditions ul li{
+    font-size: 14px;
+    color: #333;
+    line-height: 24px;
+    text-align: left;
+    margin-bottom: 15px;
+    border-bottom: 1px dashed #eee;
+}
+
+.no-border{
+    border: none!important;
+}
+
+.right-form{
+    padding: 0 0 0 4em!important;
+}
+
+label.info{
+    font-weight: 500;
+}
+
+label.half{
+    width: 40% !important;
+}

@@ -43,6 +43,8 @@ import { QuotationListComponent } from './quotation-list/quotation-list.componen
 import { UploadQuoteComponent } from './upload-quote/upload-quote.component';
 import { ModalDialogModule } from 'ngx-modal-dialog';
 import { NgbdModalContent } from './upload-quote/upload-quote.component';
+import { LoginModalComponent } from './login-modal/login-modal.component';
+import { CustomerQuotationViewComponent } from './customer-quotation-view/customer-quotation-view.component';
 
 @NgModule({
   declarations: [
@@ -63,7 +65,9 @@ import { NgbdModalContent } from './upload-quote/upload-quote.component';
     HomeComponent,
     QuotationListComponent,
     UploadQuoteComponent,
-    NgbdModalContent
+    NgbdModalContent,
+    LoginModalComponent,
+    CustomerQuotationViewComponent
   ],
   imports: [
     BrowserModule,

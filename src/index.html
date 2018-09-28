@@ -30,3 +30,15 @@
 
 </body>
 </html>
+<script type="text/javascript">
+function scriptClick(element){
+      json =  element.id;
+      //alert(json);
+      j = JSON.parse(json);
+      price = 15000;
+      name = "CG Motors";
+      document.getElementById("item_name").value =name;
+      document.getElementById("amount").value= price;
+      document.getElementById("addtocart_form").submit();
+    }
+  </script>
