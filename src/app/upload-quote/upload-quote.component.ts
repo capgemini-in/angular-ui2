@@ -1,6 +1,8 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ViewChild, ElementRef } from '@angular/core';
 import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { GetQuoteTestDriveService } from './../services/get-quote-test-drive.service'
+import { GetQuoteTestDriveService } from './../services/get-quote-test-drive.service';
+import { APIResponse } from './../skeleton/apiresponse';
+import {Constants} from './../constants';
 
 @Component({
   selector: 'app-upload-quote',
@@ -9,15 +11,17 @@ import { GetQuoteTestDriveService } from './../services/get-quote-test-drive.ser
 })
 export class UploadQuoteComponent {
 
-  
-
+  modalRef;
   constructor(private modalService: NgbModal) {}
 
   open(qtn_id) {
-    const modalRef = this.modalService.open(NgbdModalContent);
-    modalRef.componentInstance.name = 'World';
-    modalRef.componentInstance.qtn_id= qtn_id;
+    this.modalRef = this.modalService.open(NgbdModalContent);
+    this.modalRef.componentInstance.name = 'World';
+    this.modalRef.componentInstance.qtn_id= qtn_id;
+
   }
+
+
 }
 
 
@@ -29,19 +33,42 @@ export class UploadQuoteComponent {
 export class NgbdModalContent {
   @Input() name;
   @Input() qtn_id;
+  @ViewChild('btnClose') closeBtn: ElementRef;
+
+  constants = new Constants();
+
+  fileToUpload:File;
+  success:number=-1;
+  success_msg= this.constants.QUOTE_UPLOAD_SUCCESS;
+  error_msg= this.constants.QUOTE_UPLOAD_ERROR;
 
   input1=  {
               "quotation_id": this.qtn_id,
-              "discountedPrice" : 0,
-              "filePath": ""
+              "discountedPrice" : 0
             }
 
-  constructor(public activeModal: NgbActiveModal, private quoteService: GetQuoteTestDriveService) {}
+  constructor(public activeModal: NgbActiveModal, private quoteService: GetQuoteTestDriveService,private modalService: NgbModal) {}
+
+  onFileChange(event){
+    
+    this.fileToUpload = event.target.files[0];
+  }
 
   submitQuote(){
-    alert("hi");
-    this.quoteService.uploadQuote(this.input1).subscribe(response=>{
-        console.log(response);
+    //alert("hi");
+    //let modalInst = new UploadQuoteComponent(this.modalService);
+    
+    this.input1["quotation_id"]= this.qtn_id;
+    this.quoteService.uploadQuote(this.input1, this.fileToUpload).subscribe( (response:APIResponse) =>{
+        let apiResponse:APIResponse =  response;
+        if(apiResponse.status == "200"){
+          this.success=1;
+        setTimeout(()=>{
+          this.closeBtn.nativeElement.click();
+        },1000);
+        }else{
+          this.success=0;
+        }
     });
   }
 }

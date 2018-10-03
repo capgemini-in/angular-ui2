@@ -68,7 +68,9 @@ export class Constants {
 				        "discountedPrice": 0,
 				        "filePath": "0"
 				    }
-				]
+				];
 
+		QUOTE_UPLOAD_SUCCESS = "Quotation uploaded successfully ! ";
+		QUOTE_UPLOAD_ERROR = "Cannot upload quote, something went wrong.";		
 
 }

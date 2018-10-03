@@ -34,24 +34,28 @@ export class MenuComponentComponent implements OnInit {
 
    ngOnInit() {  
       this.currentURL = this.router.url;
-      //console.log(this.router);
+      console.log(this.router);
       let userDetails = this.sessionMngr.getCookie("user_details");
-      console.log(userDetails);
-      userDetails = JSON.parse(userDetails);
+      
+      if(userDetails){
+        //alert(userDetails);
+        userDetails = JSON.parse(userDetails);
 
-      for(let i=0; userDetails["userProfiles"].length;i++){
-        let role = userDetails["userProfiles"][i];
-        //alert(role["type"]);
-        if(role["type"].toLowerCase() == "dealer"){
-          this.userType =1;
-          break;
-        }else if(role["type"].toLowerCase() == "customer"){
-          this.userType = 2;
-          break;
+        for(let i=0; i<userDetails["userProfiles"].length;i++){
+          var role = userDetails["userProfiles"][i];
+          
+          if(role){
+            if(role["type"].toLowerCase() == "dealer"){
+              this.userType =1;
+              break;
+            }else if(role["type"].toLowerCase() == "customer"){
+              this.userType = 2;
+              break;
+            }
+          }
         }
       }
-
-      //alert(this.userType);
+     // alert(this.userType);
    }
      
    breadCumbs=[]; 
@@ -117,7 +121,7 @@ quickLinks (event: any)
   let selectedValue: string = '';
 
   selectedValue = event.target.value;
-  alert(selectedValue);
+  //alert(selectedValue);
 
 }
 

@@ -64,7 +64,7 @@ div.step-heading h3{
     width: 100%;
 }
 
-.cp-form input {
+.cp-form input, .cp-form select {
     padding: 4px 4px;
     height: auto;
     border-radius: 2px;

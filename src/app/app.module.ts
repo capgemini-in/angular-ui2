@@ -8,7 +8,7 @@ import { RegionComponent } from './region/region.component';
 
 import { FormsModule }   from '@angular/forms'
 
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import {NgbModule, NgbDatepicker } from '@ng-bootstrap/ng-bootstrap';
 
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
@@ -28,7 +28,6 @@ import { HttpClientModule } from "@angular/common/http";
 import { GalleryComponent } from './gallery/gallery.component';
 import { GalleryModule } from 'ng-gallery';
 import { LightboxModule } from 'angular2-lightbox';
-import { TestSlideComponent } from './test-slide/test-slide.component';
 import  'hammerjs';
 import { NgxHmCarouselModule } from 'ngx-hm-carousel';
 import { LocateDealerComponent } from './locate-dealer/locate-dealer.component';
@@ -55,7 +54,6 @@ import { CustomerQuotationViewComponent } from './customer-quotation-view/custom
     ImageSliderComponent,
     CarviewComponent,
     GalleryComponent,
-    TestSlideComponent,
     LocateDealerComponent,
     CustomerProcessComponent,
     BookTestDriveComponent,
@@ -74,6 +72,7 @@ import { CustomerQuotationViewComponent } from './customer-quotation-view/custom
     AppRoutingModule,
     FormsModule,
     NgbModule.forRoot(),
+    
     BrowserAnimationsModule,
     MatSelectModule,
     Ng2CarouselamosModule,

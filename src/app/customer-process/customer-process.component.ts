@@ -120,8 +120,10 @@ export class CustomerProcessComponent implements OnInit {
     };
 
     this.bookService.postBookOnline(requestJson).subscribe(response=>{
-        if(response && response.status==200){
-          alert("success");
+        let r:any ={'status':0};
+        r=response;
+        if(r && r.status && r.status==200){
+          //alert("success");
           this.success=1;
         }else{
           this.success=-1;
@@ -151,33 +153,3 @@ export class CustomerProcessComponent implements OnInit {
   }
 
 }
-
-/*
-export interface requestJson{
-    user =
-
-    {
-"user" : { 
-                 "id":
-              “firstName: "",
-              “lastName: "",
-               “mobileNo: "",
-                “email: "",
-               “country”:,
-               “state”:,
-              “city”:,
-               “zipcode”:,
-               “address”:
-
-
-                },
-                
-"variant":{"variantId": 5},
-"dealer":{"id":1},
-"quotation":{"quotation_id":4},
-"exchangeVehicle": "N",
-"paymentOption" :"fullPayment",
-"finalPrice": 800000
-}
-
-}*/
