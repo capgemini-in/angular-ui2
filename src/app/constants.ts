@@ -13,7 +13,7 @@ export class Constants {
 
 
 	QUOTATION_TBL_HEADERS = ["Id" ,"Name", "Contact", "Variant", "Action"];
-	CUST_QUOTATION_TBL_HEADERS= ["SR.NO", "Dealer Name", "Contact", "Address", "Price Offered", "Files"];	
+	CUST_QUOTATION_TBL_HEADERS= ["SR.NO", "Dealer Name", "Contact", "Address", "Price Offered", "Book"];	
 
 	DUMMY_DATA = [
 				    {
@@ -68,7 +68,9 @@ export class Constants {
 				        "discountedPrice": 0,
 				        "filePath": "0"
 				    }
-				]
+				];
 
+		QUOTE_UPLOAD_SUCCESS = "Quotation uploaded successfully ! ";
+		QUOTE_UPLOAD_ERROR = "Cannot upload quote, something went wrong.";		
 
 }

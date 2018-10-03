@@ -9,6 +9,7 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/switchMap';
 import { MenuItemsService } from './../menu-items.service';
 import { Component, OnInit } from '@angular/core';
+import {SessionManagerService} from './../services/session-manager.service';
 
 
 
@@ -18,6 +19,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./menu-component.component.css']
 })
 export class MenuComponentComponent implements OnInit {
+   
+   userType;
    menu_width: number = 0;
    menu =null;
    header=null;
@@ -31,12 +34,33 @@ export class MenuComponentComponent implements OnInit {
 
    ngOnInit() {  
       this.currentURL = this.router.url;
-      //console.log(this.router);
+      console.log(this.router);
+      let userDetails = this.sessionMngr.getCookie("user_details");
+      
+      if(userDetails){
+        //alert(userDetails);
+        userDetails = JSON.parse(userDetails);
+
+        for(let i=0; i<userDetails["userProfiles"].length;i++){
+          var role = userDetails["userProfiles"][i];
+          
+          if(role){
+            if(role["type"].toLowerCase() == "dealer"){
+              this.userType =1;
+              break;
+            }else if(role["type"].toLowerCase() == "customer"){
+              this.userType = 2;
+              break;
+            }
+          }
+        }
+      }
+     // alert(this.userType);
    }
      
    breadCumbs=[]; 
 
-  constructor(private menuservice:MenuItemsService,private headservice:HeaderService, private sideMenuSerive:SideMenuService,private router: Router, private activateRoute: ActivatedRoute) {
+  constructor(private menuservice:MenuItemsService,private headservice:HeaderService, private sideMenuSerive:SideMenuService,private router: Router, private activateRoute: ActivatedRoute, private sessionMngr:SessionManagerService) {
    console.log(activateRoute);
    this.breadCumbs = this.activateRoute.snapshot.data["breadCumb"];
    console.log(this.breadCumbs);
@@ -75,8 +99,8 @@ export class MenuComponentComponent implements OnInit {
 loadComponent(name, modelName, submenuName)
 {
   let queryParams = {};
-  console.log("menu:"+name);
-  if(modelName!==undefined && name.toLowerCase()=="showroom"){
+  console.log("menu:"+submenuName);
+  if(modelName!==undefined && name && name.toLowerCase()=="showroom"){
     queryParams = { queryParams: {category: modelName } }
     this.router.navigate(['./Cars/'+name],queryParams);
   }else{
@@ -97,7 +121,7 @@ quickLinks (event: any)
   let selectedValue: string = '';
 
   selectedValue = event.target.value;
-  alert(selectedValue);
+  //alert(selectedValue);
 
 }
 

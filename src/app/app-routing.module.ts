@@ -6,7 +6,6 @@ import { Routes, RouterModule } from '@angular/router';
 import { RegionComponent } from './region/region.component';
 import { ImageSliderComponent } from './image-slider/image-slider.component';
 import { CarviewComponent } from './carview/carview.component';
-import { TestSlideComponent } from './test-slide/test-slide.component';
 import { LocateDealerComponent } from './locate-dealer/locate-dealer.component';
 import { CustomerProcessComponent } from './customer-process/customer-process.component';
 import {BookTestDriveComponent} from './book-test-drive/book-test-drive.component';
@@ -14,11 +13,16 @@ import { GetQuoteComponent } from './get-quote/get-quote.component';
 import { HomeComponent } from './home/home.component'
 import { QuotationListComponent } from './quotation-list/quotation-list.component';
 import { UploadQuoteComponent } from './upload-quote/upload-quote.component';
+import {CustomerQuotationViewComponent} from './customer-quotation-view/customer-quotation-view.component';
 
 const routes: Routes = [
   {
   path: '',
   component: RegionComponent
+  },
+  {
+    path: 'home',
+    component: HomeComponent
   },
   {
     path: 'Cars',
@@ -46,10 +50,6 @@ const routes: Routes = [
       component: GalleryComponent
     },
     {
-      path: 'testSlide',
-      component: TestSlideComponent
-    },
-    {
       path: 'locate-dealers',
       component: LocateDealerComponent
     },
@@ -68,7 +68,8 @@ const routes: Routes = [
     },
     {
       path: 'book-test-drive',
-      component: BookTestDriveComponent
+      component: BookTestDriveComponent,
+      data: {'breadCumb':['Variants', 'Book Test Drive'] },
     },
     {
       path: 'quotation-list',
@@ -77,13 +78,13 @@ const routes: Routes = [
     {
       path: 'upload-quote',
       component: UploadQuoteComponent
+    },
+    {
+      path: 'your-quotation',
+      component: CustomerQuotationViewComponent
     }
     ]
-  },
-  {
-      path: 'testSlide',
-      component: TestSlideComponent
-    }
+  }
   ];
 
 

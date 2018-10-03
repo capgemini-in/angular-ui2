@@ -20,7 +20,7 @@
             <li>Unbeatable space and practicality</li>
         </ul>
         <div class="testDrive">
-              <a [routerLink]='["./../book-test-drive"]'><img src="src/assets/test.png"> </a>
+              <a [routerLink]='["./../locate-dealers"]'><img src="src/assets/test.png"> </a>
         </div>
         <div class="chekOut">
               <a [routerLink]='["./../locate-dealers"]' [queryParams]="{'variant':1}"><!--img src="src/assets/price.png"--> 
@@ -45,7 +45,8 @@
     </div>
     <div class="galleryButtons">
       <a href="javascript:;"><img src="src/assets/cover.jpg"   (click)="cover($event)"  class="imgButton"></a>
-      <a href="javascript:;"><img src="src/assets/gallerybutton.jpg"  (click)="gallery($event)"  class="imgButton"></a>
+      <a href="javascript:;"><img src="src/assets/gallerybutton.jpg"  (click)="gallery($event)"  class="imgButton">
+      </a>
       <a href="javascript:;"><img src="src/assets/expButton.jpg" (click)="exp30($event)" class="imgButton"></a>
     </div>
     </div>

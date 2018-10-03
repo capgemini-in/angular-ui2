@@ -147,7 +147,7 @@ export class GetQuoteComponent implements OnInit {
                                 "lastName" : this.userModel["lastName"],
                                 "mobileNumber": this.userModel["mobileNumber"],
                                 "email" : this.userModel["email"],
-                                "userProfiles" : [{"id":3,"type":"CUSTOMER"}] 
+                                "userProfiles" : [{"id":5,"type":"CUSTOMER"}] 
                             };
        requestJSON["variant"]= this.userModel["variant"];
        requestJSON["dealer"]= this.userModel["dealer"];

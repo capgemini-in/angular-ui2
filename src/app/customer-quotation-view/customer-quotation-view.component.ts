@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { GetQuoteTestDriveService } from './../services/get-quote-test-drive.service';
 import {MatPaginator, MatSort} from '@angular/material';
 import {Constants} from './../constants';
+import {AuthService} from './../services/auth.service';
+import {SessionManagerService} from './../services/session-manager.service';
 
 @Component({
   selector: 'app-customer-quotation-view',
@@ -16,11 +18,15 @@ export class CustomerQuotationViewComponent implements OnInit {
   tablerHeaders;
 
 
-  constructor(private quotationService:  GetQuoteTestDriveService) { }
+  constructor(private quotationService:  GetQuoteTestDriveService, private sessionManagr: SessionManagerService) { }
 
   ngOnInit() {
   	this.tablerHeaders = this.constants.CUST_QUOTATION_TBL_HEADERS;
-  	this.quotationService.getQuotations_forDealers().subscribe(response=>{
+      let userDetails = this.sessionManagr.getCookie("user_details");
+      //alert(userDetails);
+      userDetails= JSON.parse(userDetails);
+  	  
+    this.quotationService.getQuotations_forCustomers(userDetails["id"]).subscribe(response=>{
   		this.quotationList= response;
   		console.log(response);
   	});

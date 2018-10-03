@@ -28,8 +28,12 @@ export class GetQuoteTestDriveService {
     return this.http.get(this.constants.API_BASEURL+"/model/getQuotationRequest/?dealerId=1");
   }
 
-  uploadQuote(input){
-    return this.http.post(this.constants.API_BASEURL+"/files/uploadQuotation/", input, this.httpOptions);
+  uploadQuote(input, file:File){
+    console.log(file);
+    const formData = new FormData();
+    formData.append('file', file, file.name);
+    formData.append('quot', JSON.stringify(input)); 
+    return this.http.post(this.constants.API_BASEURL+"/files/uploadQuotation/", formData);
   }
 
   postBookOnline(requestJson){
@@ -37,4 +41,9 @@ export class GetQuoteTestDriveService {
     return this.http.post(this.constants.API_BASEURL+"/model/bookingRequest/", requestJson, this.httpOptions);
   }
 
+  getQuotations_forCustomers(userId){
+    return this.http.get(this.constants.API_BASEURL+"/model/getQuotation/?userId="+userId);
+  }
+
 }
+  

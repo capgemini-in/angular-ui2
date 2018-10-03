@@ -32,5 +32,9 @@ export class SessionManagerService {
      return this.expiryDate;
   }
 
+  deleteAllCookie(){
+    this.cookie.deleteAll();
+  }
+
 }
 

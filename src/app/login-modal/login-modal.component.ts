@@ -62,6 +62,7 @@ login(username,psd)
             this.sessionMngr.setCookie('user_details', JSON.stringify(response));
          });
        }
+       //this.route.n();
     });
         
      

@@ -33,3 +33,15 @@ ngb-modal-window.modal.fade.show.d-block {
 .modal-backdrop{
     opacity: 0.5!important;
 }
+
+.message-holder{
+    float: left;
+    width: 100%;
+    padding: 2em 2em 1em 2em;
+    border: 1px dotted #d6e9c6;
+}
+
+
+.message-holder .alert{
+    text-align: center;
+}
