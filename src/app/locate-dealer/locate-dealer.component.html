@@ -32,7 +32,7 @@
 				<div *ngIf="stateSelected && citySelected && !dealers_list" class="alert alert-info c-alert">No dealer found</div>
 
 				<div class="dealer-list" *ngFor="let dealer of dealers_list" (click)="btn_action(dealer.id,'get-quote')">
-					<h3>{{dealer.name}}</h3>
+					<h3>{{dealer.firstName}}</h3>
 					<p>{{dealer.address}} - {{dealer.pincode}}</p>
 					<div>
 						<span class="fa fa-globe">:&nbsp;</span><span class="web">{{dealer.website}}</span>

@@ -20,6 +20,7 @@ display360="hide";
 displaygallery="hide";
 private _album:Array<any>= [];
 variantName;
+variantId;
 
 imgarray=[
   {id:"1",color:"w3-btn w3-red",img:"src/assets/carimage.png"},
@@ -129,6 +130,7 @@ imgarray=[
     let carId;
     if(queryParams["id"]){
       carId = queryParams["id"];
+      this.variantId = carId;
     }
 
 

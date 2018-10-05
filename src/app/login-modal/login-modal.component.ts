@@ -61,6 +61,9 @@ login(username,psd)
          this.loginService.getUserDetails(this.uid).subscribe(response=>{
             this.sessionMngr.setCookie('user_details', JSON.stringify(response));
          });
+         //alert(this.route.url);
+         //this.route.navigate([this.route.url.replace("/","")]);
+         window.location.reload();
        }
        //this.route.n();
     });
@@ -88,6 +91,7 @@ openModal()
 
 logout(){
   this.authService.logout();
+  window.location.reload();
 }
 
    openVerticallyCentered(content) {

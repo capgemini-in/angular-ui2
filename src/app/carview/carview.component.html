@@ -20,10 +20,10 @@
             <li>Unbeatable space and practicality</li>
         </ul>
         <div class="testDrive">
-              <a [routerLink]='["./../locate-dealers"]'><img src="src/assets/test.png"> </a>
+              <a [routerLink]='["./../book-test-drive"]' [queryParams]="{'variant':variantId}"><img src="src/assets/test.png"> </a>
         </div>
         <div class="chekOut">
-              <a [routerLink]='["./../locate-dealers"]' [queryParams]="{'variant':1}"><!--img src="src/assets/price.png"--> 
+              <a [routerLink]='["./../locate-dealers"]' [queryParams]="{'variant':variantId}"><!--img src="src/assets/price.png"--> 
                 <button class="get-quote-btn">
                 <span class="content">Get Quote</span>
                 <span class="arrow"><i class="fa fa-angle-right small"></i><i class="fa fa-angle-right big"></i></span>
@@ -31,7 +31,7 @@
               </a>
         </div>
         <div class="bookDrive">
-              <a [routerLink]='["./../book-online"]'><img src="src/assets/book.png"> </a>
+              <a [routerLink]='["./../book-online"]' [queryParams]="{'variant':variantId}"><img src="src/assets/book.png"> </a>
         </div>
       </div>
    <div class="col-md-7 carImage">
