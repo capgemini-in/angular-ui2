@@ -91,12 +91,12 @@
 				</div>
 
 			  <div class="form-group">
-			    <label for="dealer">Select Dealer</label>
+			    <label for="dealer">Dealer Selected</label>
 			    
 			    <select class="form-control" name="dealer" id="dealer" required [(ngModel)]= "userModel.dealer['id']" #dealer="ngModel">
 			    	<option value=-1 selected="">Select</option>
 			    	<option *ngFor="let d of dealerList" value={{d.id}}>
-			    		{{d.name}}
+			    		{{d.firstName}}
 			    	</option>
 			    </select>
 

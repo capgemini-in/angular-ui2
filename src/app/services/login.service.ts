@@ -1,12 +1,15 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { Constants } from '../constants';
 
 @Injectable({
   providedIn: 'root'
 })
 export class LoginService {
 
+  constants = new Constants();
+  
   constructor(private http:HttpClient) { }
 
   httpOptions = {
@@ -21,13 +24,13 @@ export class LoginService {
     
     
     // return this.http.post("http://localhost:5000/" +"Login/Authenticate",login,this.httpOptions);   
-     let response = this.http.post("http://10.220.28.100:8083/pocwebapp/restservices/validateAccount/",login,this.httpOptions);      
+     let response = this.http.post(this.constants.API_BASEURL+"/restservices/validateAccount/",login,this.httpOptions);      
      
      return response;
    }
 
    getUserDetails(userid){
-    return this.http.get("http://10.220.28.100:8083/pocwebapp/api/getUser/?ssoId="+userid);
+    return this.http.get(this.constants.API_BASEURL+"/api/getUser/?ssoId="+userid);
    }
 
 }

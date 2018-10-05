@@ -13,6 +13,8 @@ import {SessionManagerService} from './../services/session-manager.service';
 export class CustomerQuotationViewComponent implements OnInit {
 
   constants = new Constants();
+  baseUrl = this.constants.API_BASEURL;
+
   quotationList:any;
 
   tablerHeaders;

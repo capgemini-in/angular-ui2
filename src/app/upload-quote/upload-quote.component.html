@@ -1,8 +1,9 @@
+<div id="upload-quote-modal" class="modalss" #uploadQuoteModal>
 <div class="maingallery main-content-wrapper white-bg">
 	<div class="header">
 		<h2>
 			Upload Quote 
-			<button #btnClose type="button" class="close" data-dismiss="modal" aria-label="Close">
+			<button #btnClose type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="activeModal.dismiss('Cross click')"  >
 					<span aria-hidden="true">&times;</span>
 			</button>
 		</h2>
@@ -63,4 +64,5 @@
 			</form>
 			</div>
 		</div>
+</div>
 </div>

@@ -5,6 +5,7 @@ import { SessionManagerService } from './../services/session-manager.service';
 import { HelpersService } from './../services/helpers.service';
 import { GetQuoteTestDriveService } from './../services/get-quote-test-drive.service'
 import { Router } from '@angular/router';
+import { Constants } from '../constants';
 
 @Component({
   selector: 'app-get-quote',
@@ -12,8 +13,9 @@ import { Router } from '@angular/router';
   styleUrls: ['./get-quote.component.css']
 })
 export class GetQuoteComponent implements OnInit {
+  constants = new Constants();
 
-  imageHostURL = "http://10.220.28.100:8082//pocwebapp";
+  imageHostURL = this.constants.API_BASEURL;
   formSubmitSuccess=0;
   timer=10;
 

@@ -10,15 +10,14 @@ import {Constants} from './../constants';
   styleUrls: ['./upload-quote.component.css']
 })
 export class UploadQuoteComponent {
-
+  @ViewChild('btnClose') closeBtn: ElementRef;
   modalRef;
   constructor(private modalService: NgbModal) {}
 
   open(qtn_id) {
     this.modalRef = this.modalService.open(NgbdModalContent);
     this.modalRef.componentInstance.name = 'World';
-    this.modalRef.componentInstance.qtn_id= qtn_id;
-
+    this.modalRef.componentInstance.qtn_id= qtn_id; 
   }
 
 
@@ -34,6 +33,7 @@ export class NgbdModalContent {
   @Input() name;
   @Input() qtn_id;
   @ViewChild('btnClose') closeBtn: ElementRef;
+  @ViewChild('uploadQuoteModal') uploadQuoteModal: ElementRef;
 
   constants = new Constants();
 
@@ -47,7 +47,9 @@ export class NgbdModalContent {
               "discountedPrice" : 0
             }
 
-  constructor(public activeModal: NgbActiveModal, private quoteService: GetQuoteTestDriveService,private modalService: NgbModal) {}
+  constructor(public activeModal: NgbActiveModal, private quoteService: GetQuoteTestDriveService,private modalService: NgbModal) {
+  
+  }
 
   onFileChange(event){
     
@@ -64,6 +66,8 @@ export class NgbdModalContent {
         if(apiResponse.status == "200"){
           this.success=1;
         setTimeout(()=>{
+          console.log(this.uploadQuoteModal.nativeElement);
+          this.uploadQuoteModal.nativeElement.style.display= 'none';
           this.closeBtn.nativeElement.click();
         },1000);
         }else{

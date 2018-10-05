@@ -21,11 +21,11 @@ export class GetQuoteTestDriveService {
   constructor(private http: HttpClient) { }
 
   postGetQuote(userModel){
-  	return this.http.post("http://10.220.28.100:8083/pocwebapp/model/quotationRequest/", userModel,this.httpOptions);
+  	return this.http.post(this.constants.API_BASEURL+"/model/quotationRequest/", userModel,this.httpOptions);
   }  
 
-  getQuotations_forDealers(){
-    return this.http.get(this.constants.API_BASEURL+"/model/getQuotationRequest/?dealerId=1");
+  getQuotations_forDealers(dealerId){
+    return this.http.get(this.constants.API_BASEURL+"/model/getQuotationRequest/?dealerId="+dealerId);
   }
 
   uploadQuote(input, file:File){

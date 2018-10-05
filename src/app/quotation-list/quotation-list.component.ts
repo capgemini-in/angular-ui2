@@ -4,6 +4,7 @@ import {MatPaginator, MatSort} from '@angular/material';
 import {Constants} from './../constants';
 import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { NgbdModalContent, UploadQuoteComponent } from './../upload-quote/upload-quote.component';
+import { SessionManagerService } from './../services/session-manager.service';
 
 @Component({
   selector: 'app-quotation-list',
@@ -18,12 +19,19 @@ export class QuotationListComponent implements OnInit {
   tablerHeaders;
 
 
-  constructor(private quotationService:  GetQuoteTestDriveService, private modalService: NgbModal) { }
+  constructor(private quotationService:  GetQuoteTestDriveService, private modalService: NgbModal,private sessionManager :  SessionManagerService) { }
 
   ngOnInit() {
   	
-  	this.tablerHeaders = this.constants.QUOTATION_TBL_HEADERS;
-  	this.quotationService.getQuotations_forDealers().subscribe(response=>{
+    this.tablerHeaders = this.constants.QUOTATION_TBL_HEADERS;
+    let userDetails = this.sessionManager.getCookie('user_details');
+    let dealerID=0;
+    if(userDetails){
+      userDetails = JSON.parse(userDetails);
+      dealerID= userDetails["id"];
+    }
+
+  	this.quotationService.getQuotations_forDealers(dealerID).subscribe(response=>{
   		this.quotationList= response;
   		console.log(response);
   	});
