@@ -100,7 +100,7 @@ logout(){
 
   
   checkLoggedIn(){
-    return this.authService.isLoggedIn();
+    return this.authService.isLoggedIn() && this.sessionMngr.checkCookie("user_details");
   }
 
 }

@@ -45,11 +45,13 @@ export class LocateDealerComponent implements OnInit {
   scope= null;
 
   markerList = new Array();
+  center_lat;
+  center_lng;
 
   geocoder:any;
   public location:Location = {
-    lat: 19.0820391,
-    lng: 72.6009783,
+    lat: 19.155607574999998, //19.190679425, //19.2184769,
+    lng: 72.85370950000001, //72.8240791, //72.8385125,
     marker: this.markerList/*[{
       lat: 72.9573344,
       lng: 19.2164231,
@@ -60,7 +62,7 @@ export class LocateDealerComponent implements OnInit {
       lng: 19.2430864,
       draggable: false
     }]*/,
-    zoom: 12
+    zoom: 11
   };
 
   @ViewChild(AgmMap) map: AgmMap;
@@ -135,18 +137,29 @@ export class LocateDealerComponent implements OnInit {
             this.dealers_list = response;
             //this.markerList = new Array();
             console.log(response);
-            
+              
+              var sum_lat= 0.0;
+              var sum_lng= 0.0;
               this.dealers_list.forEach(function(r){
-                console.log(r);
+                sum_lat+=parseFloat(r.latitude);
+                console.log(sum_lat);
+                sum_lng+=parseFloat(r.longitude);
                 this_cpy.markerList.push({
                   lng: parseFloat(r.latitude),
                   lat: parseFloat(r.longitude),
                   draggable: false
                 })
               });
-
+              
+              
+              //console.log(this.center_lat +""+ this.center_lng);
 
               this.map.mapReady.subscribe(map => {
+                if(sum_lat> 0 && sum_lng >0){
+                  this.location["lat"] = sum_lat / this.markerList.length;
+                  this.location["lng"] = sum_lng / this.markerList.length;
+                  console.log(this.location);
+                }
                 const bounds: LatLngBounds = new google.maps.LatLngBounds();
                 //alert("hi..")
                 for (const mm of this.markerList) {
@@ -154,6 +167,10 @@ export class LocateDealerComponent implements OnInit {
                 }
                 map.fitBounds(bounds);
               });
+
+              //this.map.latitude = 0;
+
+              
             
             }catch(e){console.log(e)}
             console.log(this.markerList);
