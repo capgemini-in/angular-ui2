@@ -37,7 +37,7 @@ export class GetQuoteComponent implements OnInit {
   cityList:any;
   dealerList:any;
   variantImage:any;
-
+  selectedDealerAddress; 
   
 
   constructor(private carService: CarService, private dealerServ: DealerService, private sessionManager:SessionManagerService,private helpers:HelpersService, private getQuoteService: GetQuoteTestDriveService, private route: Router ) { }
@@ -60,7 +60,7 @@ export class GetQuoteComponent implements OnInit {
     let all_queryParams = this.helpers.get_queryParams();
     if(all_queryParams["variant"]){
       this.userModel["variant"]["variantId"] = all_queryParams["variant"];
-      
+      this.changeCarImage();
     }
     
     if(all_queryParams["dealer"]){

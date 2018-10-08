@@ -24,15 +24,16 @@ export class CustomerQuotationViewComponent implements OnInit {
 
   ngOnInit() {
   	this.tablerHeaders = this.constants.CUST_QUOTATION_TBL_HEADERS;
-      let userDetails = this.sessionManagr.getCookie("user_details");
+    let userDetails = this.sessionManagr.getCookie("user_details");
       //alert(userDetails);
+    if(userDetails){
       userDetails= JSON.parse(userDetails);
-  	  
-    this.quotationService.getQuotations_forCustomers(userDetails["id"]).subscribe(response=>{
-  		this.quotationList= response;
-  		console.log(response);
-  	});
-  
+        
+      this.quotationService.getQuotations_forCustomers(userDetails["id"]).subscribe(response=>{
+        this.quotationList= response;
+        console.log(response);
+      });
+    }
   }
 
 }

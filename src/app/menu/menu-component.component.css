@@ -231,7 +231,8 @@ border: none;
 }
 
 .main-content{
-    padding: 0 50px
+    padding: 0 50px;
+    margin-bottom: 50px;
 }
 
 .search-box{
@@ -267,6 +268,7 @@ border: none;
     bottom: 0;
     position: relative;
     width: 100%;
+    position: fixed;
 }
 
 #footer div a{

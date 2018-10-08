@@ -14,7 +14,7 @@ export class ImageSliderComponent implements OnInit {
   
   constructor() { 
     this.images = [
-      { name: '/src/assets/SliderImages/n_1.jpg' },
+      //{ name: '/src/assets/SliderImages/n_1.jpg' },
       { name: '/src/assets/SliderImages/n_2.png' }
     ]
   }
