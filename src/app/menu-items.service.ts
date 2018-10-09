@@ -2,6 +2,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import {Constants} from './constants';
 //import { BaseUrl } from './config';
 
 
@@ -9,7 +10,8 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class MenuItemsService {
-    MenuItem = [
+  constants = new Constants;  
+  MenuItem = [
           {"id": 10, name: "HOME"},
           {
             "id":1,"name":"Model", children: [
@@ -32,7 +34,7 @@ export class MenuItemsService {
   }
 
   getMenus():Observable<any>{
-    return this.http.get("http://10.220.28.100:8083/pocwebapp/model/menus/");
+    return this.http.get(this.constants.API_BASEURL+"/model/menus/");
   }
   
 }
