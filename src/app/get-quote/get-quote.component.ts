@@ -117,18 +117,20 @@ export class GetQuoteComponent implements OnInit {
 
   variantDetailById(vId){
     let variantDetails = false;
+    if(this.vehicleList){
     for(let i=0;i<this.vehicleList.length;i++){
       if(this.vehicleList[i]["variantId"] == vId){
         variantDetails = this.vehicleList[i];
         break;
       }
     }
+    }
     return variantDetails;
   }
 
   changeCarImage(){
     	let variantSel = this.userModel.variant["variantId"];
-      console.log("variantSel :"+variantSel);
+      //console.log("variantSel :"+variantSel);
       if(variantSel>0){
           let variantDetails= this.variantDetailById(variantSel);
           this.variantImage= variantDetails["imagePath"];
