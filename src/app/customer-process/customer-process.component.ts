@@ -32,7 +32,7 @@ export class CustomerProcessComponent implements OnInit {
   		emailId: "",
   		dealerSelected: 1,
   		variantSelected: -1,
-  		colorSelected: -1,
+  		colorSelected: 0,
       exchangeVehicle: 1,
       financeOption: 1,
       priceOffered: 10000,

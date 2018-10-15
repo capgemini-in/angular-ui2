@@ -98,7 +98,7 @@
 			    <label><input type="checkbox"> Remember me</label>
 			  </div-->
 			  <div class="button-group">
-			  <button type="submit" class="btn btn-default" [disabled]="!ctForm.form.valid || !ctForm.form.touched" >NEXT</button>
+			  <button type="submit" class="btn btn-default" [disabled]="!ctForm.form.valid " >NEXT</button>
 			  <button type="reset" class="btn btn-default">RESET</button>
 			  </div>
 
@@ -128,7 +128,7 @@
 				</div>
 			  </div>
 
-			  <div class="form-group">
+			  <!--div class="form-group">
 			    <label for="color">Choose Color:</label>
 			    
 			    <select class="form-control" name="color" id="color" required [(ngModel)]= "user_data.colorSelected" #colorSelected="ngModel">
@@ -143,7 +143,7 @@
 				    	<span class="fa fa-times">&nbsp;</span> Select your desired car variant
 				    </div>
 				</div>
-			  </div>
+			  </div-->
 
 			  <!--div class="checkbox">
 			    <label><input type="checkbox"> Remember me</label>
@@ -263,6 +263,13 @@
 						<li>The credit card information supplied at the time of using the service is processed by the
 						payment gateway of the service provider and is not supplied to NID.</li>
 					</ul>
+				<div>
+					
+						<input type="checkbox" name="terms_condtn" checked id="terms_condtn">
+						<label for="terms_condtn">
+							I agrre to terms and conditions
+						</label>
+					</div>
 				</div>
 			</div>
 
