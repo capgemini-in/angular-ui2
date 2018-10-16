@@ -249,6 +249,7 @@
 	</div>
 
 	<div *ngIf="accordian_data[4]['show']">
+		<form class="form-inline cp-form"  #ctForm5="ngForm" (submit)="checkout()" >
 		<div class="form-holder with-image no-border">
 			
 			<div class="image-box">
@@ -263,19 +264,25 @@
 						<li>The credit card information supplied at the time of using the service is processed by the
 						payment gateway of the service provider and is not supplied to NID.</li>
 					</ul>
-				<div>
-					
-						<input type="checkbox" name="terms_condtn" checked id="terms_condtn">
-						<label for="terms_condtn">
-							I agrre to terms and conditions
-						</label>
+				<div class="form-group">
+					<input type="checkbox" style="display: inline; width: auto"  name="terms_condtn"  id="terms_condtn" required [(ngModel)]="accept_termsCondition" #acctTT="ngModel">
+					<label for="terms_condtn" style="display: inline; vertical-align: text-bottom">
+						I agrre to terms and conditions
+					</label>
+
+					<div class="f_message">
+							<div class="error" *ngIf="!acctTT.valid">
+								<span class="fa fa-times">&nbsp;</span> Please accept terms and condition
+							</div>
 					</div>
+				</div>
+
 				</div>
 			</div>
 
 			<div class="form-box right-form">
 				
-			<form class="form-inline cp-form"  #ctForm5="ngForm" (submit)="checkout()" >
+			<!--form class="form-inline cp-form"  #ctForm5="ngForm" (submit)="checkout()" -->
 			  <div class="form-group left-aligned">
 			    <label for="" class="half">Deposit Amount</label>
 			    <label class="info half">{{depositAmount}}
@@ -313,11 +320,12 @@
 			  		<button class="btn btn-default">Back</button>
 			  	</div>
 		
-			</form>
+			<!--/form-->
 			</div>
 
 			
 		</div>
+	</form>
 	</div>
 	</div>
 </div>
